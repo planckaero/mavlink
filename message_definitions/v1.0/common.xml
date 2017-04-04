@@ -3461,6 +3461,15 @@
               <field type="float[3]" name="position_cov">eph epv</field>
               <field type="uint64_t" name="custom_state">button states or switches of a tracker device</field>
         </message>
+        <message id="145" name="STATE_INFO">
+            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+            <field type="float" name="roll">Roll angle (rad, -pi..+pi)</field>
+            <field type="float" name="pitch">Pitch angle (rad, -pi..+pi)</field>
+            <field type="float" name="yaw">Yaw angle (rad, -pi..+pi)</field>
+            <field type="int16_t" name="xacc">X acceleration (raw)</field>
+            <field type="int16_t" name="yacc">Y acceleration (raw)</field>
+            <field type="int16_t" name="zacc">Z acceleration (raw)</field>
+        </message>
         <message id="146" name="CONTROL_SYSTEM_STATE">
             <description>The smoothed, monotonic system state used to feed the control loops of the system.</description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
