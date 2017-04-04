@@ -3579,6 +3579,18 @@
            <field type="uint8_t" name="len">data length</field>
            <field type="uint8_t[180]" name="data">RTCM message (may be fragmented)</field>
         </message>
+        <message id="234" name="LANDING_PLATFORM_STATE">
+           <description>The state of a landing platform, including WGS84 position and pose information (roll/pitch/yaw) in earth frame</description>
+           <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
+           <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
+           <field type="int32_t" name="altitude">Altitude (AMSL), in meters * 1000 (positive for up)</field>
+           <field type="float" name="vn">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
+           <field type="float" name="ve">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
+           <field type="float" name="vd">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
+           <field type="float" name="roll">Roll in degrees of the platform</field>
+           <field type="float" name="pitch">Pitch in degrees of the platform</field>
+           <field type="float" name="yaw">Yaw in degrees of the platform</field>
+        </message>
         <message id="241" name="VIBRATION">
             <description>Vibration levels and accelerometer clipping</description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
