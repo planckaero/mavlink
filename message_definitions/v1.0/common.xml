@@ -3591,6 +3591,10 @@
            <field type="float" name="pitch">Pitch in degrees of the platform</field>
            <field type="float" name="yaw">Yaw in degrees of the platform</field>
         </message>
+        <message id="235" name="LANDING_PLATFORM_HEARTBEAT">
+           <description>The state of a landing platform, including WGS84 position and pose information (roll/pitch/yaw) in earth frame</description>
+           <field type="uint64_t" name="time_us">Wall-clock time in u-seconds of the landing platform</field>
+        </message>
         <message id="241" name="VIBRATION">
             <description>Vibration levels and accelerometer clipping</description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
