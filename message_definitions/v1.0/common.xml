@@ -3117,8 +3117,8 @@
             <field type="float" name="xgyro">Angular speed around X axis rad/s</field>
             <field type="float" name="ygyro">Angular speed around Y axis rad/s</field>
             <field type="float" name="zgyro">Angular speed around Z axis rad/s</field>
-            <field type="double" name="lat">Latitude in degrees</field>
-            <field type="double" name="lon">Longitude in degrees</field>
+            <field type="float" name="lat">Latitude in degrees</field>
+            <field type="float" name="lon">Longitude in degrees</field>
             <field type="float" name="alt">Altitude in meters</field>
             <field type="float" name="std_dev_horz">Horizontal position standard deviation</field>
             <field type="float" name="std_dev_vert">Vertical position standard deviation</field>
