@@ -1,0 +1,109 @@
+<?xml version='1.0'?>
+<mavlink>
+    <!-- PlanckAerosystems contact info:                            -->
+    <!-- company URL: http://planckaero.com/                        -->
+    <!-- email contact: info@planckaero.com.                        -->
+    <enums>
+        <enum name="PLANCK_SYSTEM_IDS">
+            <description>Planck system and component IDs</description>
+            <entry value="9" name="PLANCK_SYS_ID"/>
+            <entry value="1" name="PLANCK_CTRL_COMP_ID"/>
+            <entry value="34" name="PLANCK_GPS_COMP_ID"/>
+            <entry value="69" name="PLANCK_COT_COMP_ID"/>
+        </enum>
+        <enum name="MAV_DATA_STREAM_PLANCK">
+          <description>Additional data stream for planck data.</description>
+          <entry value="99" name="MAV_DATA_STREAM_PLANCK_STATEINFO">
+            <description>Enable Planck stateinfo data</description>
+          </entry>
+        </enum>
+        <enum name="COPTER_MODE">
+            <entry value="24" name="COPTER_MODE_PLANCKTRACKING"/>
+            <entry value="25" name="COPTER_MODE_PLANCKLAND"/>
+        </enum>
+    </enums>
+    <messages>
+        <message id="9001" name="PLANCK_STATEINFO">
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint64_t" name="time_usec" units="us">Timestamp (micros since boot)</field>
+           <field type="uint64_t" name="time_unix_usec" units="us">Timestamp of the master clock in microseconds since UNIX epoch</field>
+           <field type="uint8_t" name="mode">Current flight mode</field>
+           <field type="uint8_t" name="status">Flight status: bit0:armed, bit1:in_flight, bit2:failsafe</field>
+           <field type="float" name="roll" units="rad">Roll angle (rad, -pi..+pi)</field>
+           <field type="float" name="pitch" units="rad">Pitch angle (rad, -pi..+pi)</field>
+           <field type="float" name="yaw" units="rad">Yaw angle (rad, -pi..+pi)</field>
+           <field type="float" name="xacc" units="m/s/s">X acceleration (raw)</field>
+           <field type="float" name="yacc" units="m/s/s">Y acceleration (raw)</field>
+           <field type="float" name="zacc" units="m/s/s">Z acceleration (raw)</field>
+           <field type="int32_t" name="lat" units="degE7">Latitude</field>
+           <field type="int32_t" name="lon" units="degE7">Longitude</field>
+           <field type="int32_t" name="alt" units="mm">Altitude, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
+           <field type="int32_t" name="relative_alt" units="mm">Altitude above ground in meters, expressed as * 1000 (millimeters)</field>
+           <field type="float" name="vn" units="m/s">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
+           <field type="float" name="ve" units="m/s">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
+           <field type="float" name="vd" units="m/s">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
+        </message>
+        <message id="9002" name="PLANCK_LANDING_PLATFORM_STATE">
+           <description>The state of a landing platform, including WGS84 position and pose information (roll/pitch/yaw) in earth frame</description>
+           <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
+           <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
+           <field type="int32_t" name="altitude">Altitude (AMSL), in meters * 1000 (positive for up)</field>
+           <field type="float" name="vn">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
+           <field type="float" name="ve">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
+           <field type="float" name="vd">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
+           <field type="float" name="roll">Roll in degrees of the platform</field>
+           <field type="float" name="pitch">Pitch in degrees of the platform</field>
+           <field type="float" name="yaw">Yaw in degrees of the platform</field>
+        </message>
+        <message id="9003" name="PLANCK_STATUS">
+           <description>The state of the planck's control software</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint8_t" name="status">Controller status bitfield (TAG_ESTIMATOR_OK=bit0, BOAT_ESTIMATOR_OK=bit1)</field>
+           <field type="uint8_t" name="failsafe">Failsafe status bitfield (COMMBOX_OK=bit0, COMMBOX_GPS_OK)</field>
+           <field type="uint8_t" name="takeoff_ready">Ready for takeoff</field>
+           <field type="uint8_t" name="land_ready">Ready for landing</field>
+           <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
+        </message>
+        <message id="9004" name="PLANCK_CMD_MSG">
+           <description>Controller commands from planck to APM</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
+           <field type="uint8_t" name="frame" enum="MAV_FRAME">mav frame, see MAV_FRAME enum</field>
+           <field type="uint16_t" name="type_mask">Fields which are valid: b1:lat, b2:lon, b3:alt, b4:vx, b5:vy, b6:vz, b7:ax, b8:ay, b9:az, b10:roll, b11:pitch, b12:yaw, b13:yaw is rate</field>
+           <field type="int32_t" name="lat" units="degE7">Latitude deg * 1E7</field>
+           <field type="int32_t" name="lon" units="degE7">Longitude deg * 1E7</field>
+           <field type="float" name="alt" units="m">Altitude in meters</field>
+           <field type="float[3]" name="vel" units="m/s">Velocities (NED)</field>
+           <field type="float[3]" name="acc" units="m/s/s">Accelerations (NED)</field>
+           <field type="float[3]" name="att" units="rads">Attitudes (NED)</field>
+        </message>
+        <message id="9005" name="PLANCK_START_TAKEOFF">
+           <description>Indicates to planck that it should initiate a takeoff</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="alt" units="m">Target altitude above landing platform</field>
+        </message>
+        <message id="9006" name="PLANCK_START_RETURN_TO_LANDING_PLATFORM">
+           <description>Indicates to planck that it should initiate an RTL/RTB</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="alt" units="m">Altitude at which to return</field>
+           <field type="float" name="rate_up" units="m/s">Ascent rate during initial ascent</field>
+           <field type="float" name="rate_down" units="m/s">Descent rate before landing</field>
+        </message>
+        <message id="9007" name="PLANCK_START_LAND">
+           <description>Indicates to planck that it should initiate a landing</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="rate" units="m/s">Descent rate to use during landing</field>
+        </message>
+        <message id="9008" name="PLANCK_STOP_CONTROLLING">
+           <description>Indicates to planck that it should stop sending command messages</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
+           <field type="uint8_t" name="stop">1: stop controlling, 0: keep controlling</field>
+        </message>
+    </messages>
+</mavlink>
