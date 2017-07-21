@@ -1,0 +1,33 @@
+<?xml version='1.0'?>
+<mavlink>
+    <!-- PlanckAerosystems contact info:                            -->
+    <!-- company URL: http://planckaero.com/                        -->
+    <!-- email contact: info@planckaero.com.                        -->
+    <messages>
+        <message id="145" name="STATE_INFO">
+            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+            <field type="float" name="roll">Roll angle (rad, -pi..+pi)</field>
+            <field type="float" name="pitch">Pitch angle (rad, -pi..+pi)</field>
+            <field type="float" name="yaw">Yaw angle (rad, -pi..+pi)</field>
+            <field type="int16_t" name="xacc">X acceleration (raw)</field>
+            <field type="int16_t" name="yacc">Y acceleration (raw)</field>
+            <field type="int16_t" name="zacc">Z acceleration (raw)</field>
+        </message>
+        <message id="236" name="LANDING_PLATFORM_STATE">
+           <description>The state of a landing platform, including WGS84 position and pose information (roll/pitch/yaw) in earth frame</description>
+           <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
+           <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
+           <field type="int32_t" name="altitude">Altitude (AMSL), in meters * 1000 (positive for up)</field>
+           <field type="float" name="vn">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
+           <field type="float" name="ve">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
+           <field type="float" name="vd">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
+           <field type="float" name="roll">Roll in degrees of the platform</field>
+           <field type="float" name="pitch">Pitch in degrees of the platform</field>
+           <field type="float" name="yaw">Yaw in degrees of the platform</field>
+        </message>
+        <message id="235" name="LANDING_PLATFORM_HEARTBEAT">
+           <description>The state of a landing platform, including WGS84 position and pose information (roll/pitch/yaw) in earth frame</description>
+           <field type="uint64_t" name="time_us">Wall-clock time in u-seconds of the landing platform</field>
+        </message>
+    </messages>
+</mavlink>
