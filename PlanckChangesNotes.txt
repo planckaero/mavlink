@@ -1,0 +1,17 @@
+Planck Aerosystems changes notes:
+---------------------------------
+
+# Please keep this notes up-to-date to keep track of the changes
+# made to Mavlink.
+
+1) Adding state info msg to send hight rate state info from Autopilot to Companion Computer:
+  - id: 145
+  - name: STATE_INFO
+
+2) Adding landing platform state to send state of the landing platform to the Companion Computer
+  - id: 236
+  - name: LANDING_PLATFORM_STATE
+
+3) Adding landing platform heartbeat to check status of landing platform
+  - id:235
+  - name: LANDING_PLATFORM_HEARTBEAT
