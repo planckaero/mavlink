@@ -1,0 +1,79 @@
+<?xml version='1.0'?>
+<mavlink>
+    <!-- PlanckAerosystems contact info:                            -->
+    <!-- company URL: http://planckaero.com/                        -->
+    <!-- email contact: info@planckaero.com.                        -->
+    <enums>
+        <enum name="PLANCK_SYSTEM_IDS">
+            <description>Planck system and component IDs</description>
+            <entry value="9" name="PLANCK_SYS_ID"/>
+            <entry value="1" name="PLANCK_CTRL_COMP_ID"/>
+        </enum>
+    </enums>
+    <messages>
+        <message id="9001" name="PLANCK_STATEINFO">
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+           <field type="uint8_t" name="mode">Current flight mode</field>
+           <field type="uint8_t" name="status">Flight status: bit0:armed, bit1:in_flight, bit2:failsafe</field>
+           <field type="float" name="roll" units="rad">Roll angle (rad, -pi..+pi)</field>
+           <field type="float" name="pitch" units="rad">Pitch angle (rad, -pi..+pi)</field>
+           <field type="float" name="yaw" units="rad">Yaw angle (rad, -pi..+pi)</field>
+           <field type="float" name="xacc" units="m/s/s">X acceleration (raw)</field>
+           <field type="float" name="yacc" units="m/s/s">Y acceleration (raw)</field>
+           <field type="float" name="zacc" units="m/s/s">Z acceleration (raw)</field>
+           <field type="int32_t" name="lat" units="degE7">Latitude</field>
+           <field type="int32_t" name="lon" units="degE7">Longitude</field>
+           <field type="int32_t" name="alt" units="mm">Altitude, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
+           <field type="int32_t" name="relative_alt" units="mm">Altitude above ground in meters, expressed as * 1000 (millimeters)</field>
+           <field type="float" name="vn" units="m/s">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
+           <field type="float" name="ve" units="m/s">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
+           <field type="float" name="vd" units="m/s">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
+        </message>
+        <message id="9003" name="VERSION_QUERY_RESPONSE">
+           <description>Used for obtaining software version numbers. Request and response are the same message</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint8_t" name="response">Query or response (QUERY=0, RESPONSE=NON-ZERO)</field>
+           <field type="uint8_t" name="entity">Entity to query/respond (planck-ctrl=0)</field>
+           <field type="int8_t[40]" name="version">NULL-terminated string response with version or N/A for query (max 40 chars including NULL-term)</field>
+        </message>
+        <message id="9007" name="PLANCK_STATUS">
+           <description>The state of the planck's control software</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint8_t" name="status">Controller status bitfield (TAG_ESTIMATOR_OK=bit0, BOAT_ESTIMATOR_OK=bit1)</field>
+           <field type="uint8_t" name="failsafe">Failsafe status bitfield (COMMBOX_OK=bit0, COMMBOX_GPS_OK)</field>
+           <field type="uint8_t" name="takeoff_ready">Ready for takeoff</field>
+           <field type="uint8_t" name="land_ready">Ready for landing</field>
+           <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
+        </message>
+        <message id="9012" name="PLANCK_LANDING_TAG_STATE_NED">
+           <description>State information of the tag relative to the aircraft</description>
+           <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
+           <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="z" units="meters">Z position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="vx" units="m/s">X velocity of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="vy" units="m/s">Y velocity of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="vz" units="m/s">Z velocity of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="roll" units="rads">Euler angle roll of the tag in NED frame</field>
+           <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in NED frame</field>
+           <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in NED frame</field>
+        </message>
+        <message id="9013" name="PLANCK_LANDING_TAG_STATE_BODY">
+           <description>State information of the tag relative to the body frame</description>
+           <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
+           <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="z" units="meters">Z position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="vx" units="m/s">X velocity of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="vy" units="m/s">Y velocity of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="vz" units="m/s">Z velocity of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="roll" units="rads">Euler angle roll of the tag in body frame</field>
+           <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in body frame</field>
+           <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in body frame</field>
+        </message>
+    </messages>
+</mavlink>

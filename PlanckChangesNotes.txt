@@ -1,0 +1,41 @@
+Planck Aerosystems changes notes:
+---------------------------------
+
+# Please keep this notes up-to-date to keep track of the changes
+# made to Mavlink.
+
+1) Adding state info msg to send hight rate state info from Autopilot to Companion Computer:
+  - id: 145
+  - name: STATE_INFO
+
+2) Adding landing platform state to send state of the landing platform to the Companion Computer
+  - id: 236
+  - name: LANDING_PLATFORM_STATE
+
+3) Adding landing platform heartbeat to check status of landing platform
+  - id: 235
+  - name: LANDING_PLATFORM_HEARTBEAT
+
+4) Added version query/response message
+  - id: 190
+  - name: VERSION_QUERY_RESPONSE
+
+5) Added orbit command message
+  - id: 237
+  - name: ORBIT_COMMAND
+
+6) Added lead/follow command message
+  - id: 238
+  - name: LEAD_FOLLOW_COMMAND
+
+7) Added planck status message
+  - id: 239
+  - name: PLANCK_STATUS
+
+8) Added planck radio status message
+  - id: 240
+  - name: PLANCK_RADIO_STATUS
+
+9) Added target_state message
+  - id: 159
+  - name: TARGET_STATE
