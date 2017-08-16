@@ -13,5 +13,25 @@ Planck Aerosystems changes notes:
   - name: LANDING_PLATFORM_STATE
 
 3) Adding landing platform heartbeat to check status of landing platform
-  - id:235
+  - id: 235
   - name: LANDING_PLATFORM_HEARTBEAT
+
+4) Added version query/response message
+  - id: 190
+  - name: VERSION_QUERY_RESPONSE
+
+5) Added orbit command message
+  - id: 237
+  - name: ORBIT_COMMAND
+
+6) Added lead/follow command message
+  - id: 238
+  - name: LEAD_FOLLOW_COMMAND
+
+7) Added planck status message
+  - id: 239
+  - name: PLANCK_STATUS
+
+8) Added planck radio status message
+  - id: 240
+  - name: PLANCK_RADIO_STATUS
