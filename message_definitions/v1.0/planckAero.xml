@@ -3,6 +3,31 @@
     <!-- PlanckAerosystems contact info:                            -->
     <!-- company URL: http://planckaero.com/                        -->
     <!-- email contact: info@planckaero.com.                        -->
+    <enums>
+        <enum name="PLANCK_STATUS_MODE">
+            <entry value="0" name="IDLE"/>
+            <entry value="1" name="TAKEOFF"/>
+            <entry value="2" name="STAB"/>
+            <entry value="3" name="RTB"/>
+            <entry value="4" name="SEARCHING"/>
+            <entry value="5" name="LAND_READY"/>
+            <entry value="6" name="LAND"/>
+            <entry value="7" name="ORBIT"/>
+            <entry value="8" name="LEAD_FOLLOW"/>
+        </enum>
+        <enum name="PLANCK_STATUS_FAILSAFE">
+            <description>These flags encode the MAV mode.</description>
+            <entry value="8" name="COMMBOX_GPS_OK"/>
+            <entry value="4" name="BATTERY_OK"/>
+            <entry value="2" name="COMMBOX_OK"/>
+            <entry value="1" name="RC_OK"/>
+        </enum>
+        <enum name="PLANCK_STATUS_CONTROLLER">
+            <description>These flags encode the MAV mode.</description>
+            <entry value="2" name="BOAT_ESTIMATOR_OK"/>
+            <entry value="1" name="TAG_ESTIMATOR_OK"/>
+        </enum>
+    </enums>
     <messages>
         <message id="145" name="STATE_INFO">
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
