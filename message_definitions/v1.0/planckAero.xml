@@ -5,15 +5,15 @@
     <!-- email contact: info@planckaero.com.                        -->
     <enums>
         <enum name="PLANCK_STATUS_MODE">
-            <entry value="0" name="IDLE"/>
-            <entry value="1" name="TAKEOFF"/>
-            <entry value="2" name="STAB"/>
-            <entry value="3" name="RTB"/>
-            <entry value="4" name="SEARCHING"/>
-            <entry value="5" name="LAND_READY"/>
-            <entry value="6" name="LAND"/>
-            <entry value="7" name="ORBIT"/>
-            <entry value="8" name="LEAD_FOLLOW"/>
+            <entry value="0" name="PLANCK_IDLE"/>
+            <entry value="1" name="PLANCK_TAKEOFF"/>
+            <entry value="2" name="PLANCK_STAB"/>
+            <entry value="3" name="PLANCK_RTB"/>
+            <entry value="4" name="PLANCK_SEARCHING"/>
+            <entry value="5" name="PLANCK_LAND_READY"/>
+            <entry value="6" name="PLANCK_LAND"/>
+            <entry value="7" name="PLANCK_ORBIT"/>
+            <entry value="8" name="PLANCK_LEAD_FOLLOW"/>
         </enum>
         <enum name="PLANCK_STATUS_FAILSAFE">
             <description>These flags encode the MAV mode.</description>
