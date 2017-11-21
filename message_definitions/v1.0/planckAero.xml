@@ -44,7 +44,7 @@
             <field type="int16_t" name="zacc">Z acceleration (raw)</field>
         </message>
         <message id="159" name="TARGET_STATE">
-           <field type="uint32_t" name="id">Target ID</field>
+           <field type="uint32_t" name="id">Target ID (1-based)</field>
            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
            <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
            <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
@@ -86,7 +86,7 @@
            <field type="float" name="angular_velocity">Rate in rad/sec at which to orbit (positive=clockwise)</field>
            <field type="float" name="radius">Distance in meters from center of landing platform to orbit</field>
            <field type="float" name="orientation">vehicle direction during orbit (away-relative, positive-right, example: 0=outward)</field>
-           <field type="uint8_t" name="target">Target to track (LANDING-PLATFORM=0, TARGET=1)</field>
+           <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
         </message>
         <message id="238" name="LEAD_FOLLOW_COMMAND">
            <description>Instruction for vehicle to maintain a fixed X/Y position, relative to the landing platform in either earth-frame or platform-frame</description>
@@ -96,7 +96,7 @@
            <field type="float" name="x_offset">Maintain x distance from landing platform (forward-positive for platform-frame, north-positive for earth-frame)</field>
            <field type="float" name="y_offset">Maintain y distance from landing platform (starboard-positive for platform-frame, east-positive for earth-frame)</field>
            <field type="uint8_t" name="frame">Reference frame (NORTH-EAST-DOWN=0, FORWARD-STARBOARD-DOWN=1)</field>
-           <field type="uint8_t" name="target">Target to track (LANDING-PLATFORM=0, TARGET=1)</field>
+           <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
         </message>
         <message id="239" name="PLANCK_STATUS">
            <description>The state of the vehicle, for UX usage</description>
