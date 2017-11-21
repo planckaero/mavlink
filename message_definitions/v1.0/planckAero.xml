@@ -44,6 +44,7 @@
             <field type="int16_t" name="zacc">Z acceleration (raw)</field>
         </message>
         <message id="159" name="TARGET_STATE">
+           <field type="uint32_t" name="id">Target ID</field>
            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
            <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
            <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
