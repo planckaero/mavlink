@@ -35,3 +35,7 @@ Planck Aerosystems changes notes:
 8) Added planck radio status message
   - id: 240
   - name: PLANCK_RADIO_STATUS
+
+9) Added target_state message
+  - id: 159
+  - name: TARGET_STATE
