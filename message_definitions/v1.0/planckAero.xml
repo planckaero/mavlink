@@ -32,6 +32,12 @@
             <entry value="0" name="LANDING_PLATFORM"/>
             <entry value="1" name="TARGET"/>
         </enum>
+        <enum name="MAV_DATA_STREAM_PLANCK">
+          <description>Additional data stream for planck data.</description>
+          <entry value="99" name="MAV_DATA_STREAM_PLANCK_STATEINFO">
+            <description>Enable Planck stateinfo data</description>
+          </entry>
+        </enum>
     </enums>
     <messages>
       <!--
