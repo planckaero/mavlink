@@ -151,11 +151,10 @@
         </message>
         <message id="9012" name="PLANCK_POS_CMD_MSG">
            <description>Position commands from planck_ctrl to APM</description>
-           <field type="uint8_t" name="use_relative_alt">If commanding a relative altitude</field>
+           <field type="uint8_t" name="frame" enum="MAV_FRAME">mav frame, see MAV_FRAME enum</field>
            <field type="int32_t" name="latitude" units="degE7">Latitude command</field>
            <field type="int32_t" name="longitude" units="degE7">Longitude command</field>
-           <field type="int32_t" name="alt" units="mm">Altitude in meters, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
-           <field type="int32_t" name="relative_alt" units="mm">Altitude above ground in meters, expressed as * 1000 (millimeters)</field>
+           <field type="int32_t" name="altitude" units="mm">Altitude in meters, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
         </message>
     </messages>
 </mavlink>
