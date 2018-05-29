@@ -125,6 +125,7 @@
            <field type="float" name="vx" units="m/s">Velocity command (North)</field>
            <field type="float" name="vy" units="m/s">Velocity command (East)</field>
            <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
+           <field type="float" name="yaw" units="rads">Yaw command</field>
         </message>
         <message id="9012" name="PLANCK_POS_CMD_MSG">
            <description>Position commands from planck_ctrl to APM</description>
