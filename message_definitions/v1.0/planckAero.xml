@@ -105,6 +105,7 @@
            <field type="uint8_t" name="failsafe">Failsafe status bitfield (COMMBOX_OK=bit0, COMMBOX_GPS_OK)</field>
            <field type="uint8_t" name="takeoff_ready">Ready for takeoff</field>
            <field type="uint8_t" name="land_ready">Ready for landing</field>
+           <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
         </message>
         <message id="9009" name="PLANCK_RADIO_STATUS">
            <description>The state of various radio links, for UX usage</description>
