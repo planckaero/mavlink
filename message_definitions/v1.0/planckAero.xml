@@ -120,7 +120,6 @@
            <field type="float" name="yaw" units="rads">Yaw command</field>
            <field type="float" name="yaw_rate" units="rads/s">Yaw rate command</field>
            <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
-           <field type="uint8_t" name="kill_motors">Motor kill command</field>
         </message>
         <message id="9011" name="PLANCK_VEL_CMD_MSG">
            <description>Velocity commands from planck_ctrl to APM</description>
