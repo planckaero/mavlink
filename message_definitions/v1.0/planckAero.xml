@@ -119,6 +119,8 @@
         </message>
         <message id="9010" name="PLANCK_ATT_CMD_MSG">
            <description>Attitude and z velocity commands from planck_ctrl to APM</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
            <field type="uint8_t" name="use_yaw_rate">If commanding a yaw or yaw rate</field>
            <field type="float" name="roll" units="rads">Roll command</field>
            <field type="float" name="pitch" units="rads">Pitch command</field>
@@ -128,6 +130,8 @@
         </message>
         <message id="9011" name="PLANCK_VEL_CMD_MSG">
            <description>Velocity commands from planck_ctrl to APM</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
            <field type="float" name="vx" units="m/s">Velocity command (North)</field>
            <field type="float" name="vy" units="m/s">Velocity command (East)</field>
            <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
@@ -135,6 +139,8 @@
         </message>
         <message id="9012" name="PLANCK_POS_CMD_MSG">
            <description>Position commands from planck_ctrl to APM</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
            <field type="uint8_t" name="frame" enum="MAV_FRAME">mav frame, see MAV_FRAME enum</field>
            <field type="int32_t" name="latitude" units="degE7">Latitude command</field>
            <field type="int32_t" name="longitude" units="degE7">Longitude command</field>
@@ -142,6 +148,8 @@
         </message>
         <message id="9013" name="PLANCK_STOP_CONTROLLING">
            <description>Indicates to planck that it should stop sending command messages</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
            <field type="uint8_t" name="stop">1: stop controlling, 0: keep controlling</field>
         </message>
     </messages>
