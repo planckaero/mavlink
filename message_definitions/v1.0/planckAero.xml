@@ -142,6 +142,7 @@
         </message>
         <message id="9013" name="PLANCK_STOP_CONTROLLING">
            <description>Indicates to planck that it should stop sending command messages</description>
+           <field type="uint8_t" name="stop">1: stop controlling, 0: keep controlling</field>
         </message>
     </messages>
 </mavlink>
