@@ -4,6 +4,11 @@
     <!-- company URL: http://planckaero.com/                        -->
     <!-- email contact: info@planckaero.com.                        -->
     <enums>
+        <enum name="PLANCK_SYSTEM_IDS">
+            <description>Planck system and component IDs</description>
+            <entry value="9" name="PLANCK_SYS_ID"/>
+            <entry value="1" name="PLANCK_CTRL_COMP_ID"/>
+        </enum>
         <enum name="PLANCK_STATUS_FAILSAFE">
             <description>These flags encode the MAV mode.</description>
             <entry value="8" name="COMMBOX_GPS_OK"/>
