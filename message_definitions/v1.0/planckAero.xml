@@ -34,6 +34,8 @@
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
+           <field type="uint8_t" name="mode">Current flight mode<field>
+           <field type="uint8_t" name="status">Flight status: bit0:armed, bit1:in_flight, bit2:_failsafe<field>
            <field type="float" name="roll" units="rad">Roll angle (rad, -pi..+pi)</field>
            <field type="float" name="pitch" units="rad">Pitch angle (rad, -pi..+pi)</field>
            <field type="float" name="yaw" units="rad">Yaw angle (rad, -pi..+pi)</field>
@@ -47,7 +49,6 @@
            <field type="float" name="vn" units="m/s">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
            <field type="float" name="ve" units="m/s">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
            <field type="float" name="vd" units="m/s">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
-           <field type="float" name="heading" units="cdeg">Heading in degrees (0=North, positive clockwise)</field>
         </message>
         <message id="9002" name="TARGET_STATE">
            <field type="uint32_t" name="id">Target ID (1-based)</field>
