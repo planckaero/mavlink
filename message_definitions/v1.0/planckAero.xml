@@ -39,9 +39,9 @@
            <field type="float" name="roll" units="rad">Roll angle (rad, -pi..+pi)</field>
            <field type="float" name="pitch" units="rad">Pitch angle (rad, -pi..+pi)</field>
            <field type="float" name="yaw" units="rad">Yaw angle (rad, -pi..+pi)</field>
-           <field type="int16_t" name="xacc" units="m/s/s">X acceleration (raw)</field>
-           <field type="int16_t" name="yacc" units="m/s/s">Y acceleration (raw)</field>
-           <field type="int16_t" name="zacc" units="m/s/s">Z acceleration (raw)</field>
+           <field type="float" name="xacc" units="m/s/s">X acceleration (raw)</field>
+           <field type="float" name="yacc" units="m/s/s">Y acceleration (raw)</field>
+           <field type="float" name="zacc" units="m/s/s">Z acceleration (raw)</field>
            <field type="int32_t" name="lat" units="degE7">Latitude</field>
            <field type="int32_t" name="lon" units="degE7">Longitude</field>
            <field type="int32_t" name="alt" units="mm">Altitude, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
