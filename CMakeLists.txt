@@ -142,7 +142,7 @@ set(v0.9Definitions
     test.xml
     ualberta.xml
     )
-generateMavlink("0.9" "${v0.9Definitions}")
+#generateMavlink("0.9" "${v0.9Definitions}")
 set(v1.0Definitions
     ASLUAV.xml
     ardupilotmega.xml
@@ -156,7 +156,7 @@ set(v1.0Definitions
     test.xml
     ualberta.xml
     )
-generateMavlink("1.0" "${v1.0Definitions}")
+generateMavlink("2.0" "${v1.0Definitions}")
 
 # testing
 if (BUILD_TEST)
