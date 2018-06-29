@@ -23,6 +23,8 @@
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
            <field type="uint8_t" name="mode">Current flight mode</field>
            <field type="uint8_t" name="status">Flight status: bit0:armed, bit1:in_flight, bit2:failsafe</field>
@@ -93,6 +95,8 @@
         </message>
         <message id="9007" name="PLANCK_STATUS">
            <description>The state of the planck's control software</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
            <field type="uint8_t" name="status">Controller status bitfield (TAG_ESTIMATOR_OK=bit0, BOAT_ESTIMATOR_OK=bit1)</field>
            <field type="uint8_t" name="failsafe">Failsafe status bitfield (COMMBOX_OK=bit0, COMMBOX_GPS_OK)</field>
            <field type="uint8_t" name="takeoff_ready">Ready for takeoff</field>
