@@ -3,6 +3,7 @@
     <!-- PlanckAerosystems contact info:                            -->
     <!-- company URL: http://planckaero.com/                        -->
     <!-- email contact: info@planckaero.com.                        -->
+    <dialect>2</dialect>
     <enums>
         <enum name="PLANCK_SYSTEM_IDS">
             <description>Planck system and component IDs</description>
@@ -68,9 +69,6 @@
            <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the body frame</field>
            <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the body frame</field>
            <field type="float" name="z" units="meters">Z position of the tag relative to the CG of the aircraft in the body frame</field>
-           <field type="float" name="vx" units="m/s">X velocity of the tag relative to the CG of the aircraft in the body frame</field>
-           <field type="float" name="vy" units="m/s">Y velocity of the tag relative to the CG of the aircraft in the body frame</field>
-           <field type="float" name="vz" units="m/s">Z velocity of the tag relative to the CG of the aircraft in the body frame</field>
            <field type="float" name="roll" units="rads">Euler angle roll of the tag in body frame</field>
            <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in body frame</field>
            <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in body frame</field>
