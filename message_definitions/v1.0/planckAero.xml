@@ -32,24 +32,6 @@
            <field type="float" name="ve" units="m/s">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
            <field type="float" name="vd" units="m/s">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
         </message>
-        <message id="9003" name="VERSION_QUERY_RESPONSE">
-           <description>Used for obtaining software version numbers. Request and response are the same message</description>
-           <field type="uint8_t" name="target_system">System ID</field>
-           <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint8_t" name="response">Query or response (QUERY=0, RESPONSE=NON-ZERO)</field>
-           <field type="uint8_t" name="entity">Entity to query/respond (planck-ctrl=0)</field>
-           <field type="int8_t[40]" name="version">NULL-terminated string response with version or N/A for query (max 40 chars including NULL-term)</field>
-        </message>
-        <message id="9007" name="PLANCK_STATUS">
-           <description>The state of the planck's control software</description>
-           <field type="uint8_t" name="target_system">System ID</field>
-           <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint8_t" name="status">Controller status bitfield (TAG_ESTIMATOR_OK=bit0, BOAT_ESTIMATOR_OK=bit1)</field>
-           <field type="uint8_t" name="failsafe">Failsafe status bitfield (COMMBOX_OK=bit0, COMMBOX_GPS_OK)</field>
-           <field type="uint8_t" name="takeoff_ready">Ready for takeoff</field>
-           <field type="uint8_t" name="land_ready">Ready for landing</field>
-           <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
-        </message>
         <message id="9012" name="PLANCK_LANDING_TAG_STATE_NED">
            <description>State information of the tag relative to the aircraft</description>
            <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
