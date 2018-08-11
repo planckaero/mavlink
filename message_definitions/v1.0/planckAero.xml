@@ -63,7 +63,7 @@
            <field type="uint8_t" name="entity">Entity to query/respond (planck-ctrl=0)</field>
            <field type="int8_t[40]" name="version">NULL-terminated string response with version or N/A for query (max 40 chars including NULL-term)</field>
         </message>
-        <message id="9004" name="LANDING_PLATFORM_STATE">
+        <message id="9004" name="PLANCK_LANDING_PLATFORM_STATE">
            <description>The state of a landing platform, including WGS84 position and pose information (roll/pitch/yaw) in earth frame</description>
            <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
            <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
@@ -75,27 +75,7 @@
            <field type="float" name="pitch">Pitch in degrees of the platform</field>
            <field type="float" name="yaw">Yaw in degrees of the platform</field>
         </message>
-        <message id="9005" name="ORBIT_COMMAND">
-           <description>Instruction for vehicle to orbit landing platform at a fixed radius, at a fixed rate</description>
-           <field type="uint8_t" name="target_system">System ID</field>
-           <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="float" name="altitude">Altitude in meters at which orbit takes place</field>
-           <field type="float" name="angular_velocity">Rate in rad/sec at which to orbit (positive=clockwise)</field>
-           <field type="float" name="radius">Distance in meters from center of landing platform to orbit</field>
-           <field type="float" name="orientation">vehicle direction during orbit (away-relative, positive-right, example: 0=outward)</field>
-           <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
-        </message>
-        <message id="9006" name="LEAD_FOLLOW_COMMAND">
-           <description>Instruction for vehicle to maintain a fixed X/Y position, relative to the landing platform in either earth-frame or platform-frame</description>
-           <field type="uint8_t" name="target_system">System ID</field>
-           <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="float" name="altitude">Altitude in meters at which lead/follow takes place</field>
-           <field type="float" name="x_offset">Maintain x distance from landing platform (forward-positive for platform-frame, north-positive for earth-frame)</field>
-           <field type="float" name="y_offset">Maintain y distance from landing platform (starboard-positive for platform-frame, east-positive for earth-frame)</field>
-           <field type="uint8_t" name="frame">Reference frame (NORTH-EAST-DOWN=0, FORWARD-STARBOARD-DOWN=1)</field>
-           <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
-        </message>
-        <message id="9007" name="PLANCK_STATUS">
+        <message id="9005" name="PLANCK_STATUS">
            <description>The state of the planck's control software</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
@@ -105,7 +85,7 @@
            <field type="uint8_t" name="land_ready">Ready for landing</field>
            <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
         </message>
-        <message id="9008" name="PLANCK_ATT_CMD_MSG">
+        <message id="9006" name="PLANCK_ATT_CMD_MSG">
            <description>Attitude and z velocity commands from planck_ctrl to APM</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
@@ -116,7 +96,7 @@
            <field type="float" name="yaw_rate" units="rads/s">Yaw rate command</field>
            <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
         </message>
-        <message id="9009" name="PLANCK_VEL_CMD_MSG">
+        <message id="9007" name="PLANCK_VEL_CMD_MSG">
            <description>Velocity commands from planck_ctrl to APM</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
@@ -125,7 +105,7 @@
            <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
            <field type="float" name="yaw" units="rads">Yaw command</field>
         </message>
-        <message id="9010" name="PLANCK_POS_CMD_MSG">
+        <message id="9008" name="PLANCK_POS_CMD_MSG">
            <description>Position commands from planck_ctrl to APM</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
@@ -134,7 +114,45 @@
            <field type="int32_t" name="longitude" units="degE7">Longitude command</field>
            <field type="int32_t" name="altitude" units="mm">Altitude in meters, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
         </message>
-        <message id="9011" name="PLANCK_STOP_CONTROLLING">
+        <message id="9009" name="PLANCK_START_TAKEOFF">
+           <description>Indicates to planck that it should initiate a takeoff</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="alt" units="m">Target altitude above landing platform</field>
+        </message>
+        <message id="9010" name="PLANCK_START_RETURN_TO_LANDING_PLATFORM">
+           <description>Indicates to planck that it should initiate an RTL/RTB</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="alt" units="m">Altitude at which to return</field>
+        </message>
+        <message id="9011" name="PLANCK_START_LAND">
+           <description>Indicates to planck that it should initiate a landing</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="field1">Bogus field</field>
+        </message>
+        <message id="9012" name="PLANCK_START_ORBIT">
+           <description>Instruction for vehicle to orbit landing platform at a fixed radius, at a fixed rate</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="altitude">Altitude in meters at which orbit takes place</field>
+           <field type="float" name="angular_velocity">Rate in rad/sec at which to orbit (positive=clockwise)</field>
+           <field type="float" name="radius">Distance in meters from center of landing platform to orbit</field>
+           <field type="float" name="orientation">vehicle direction during orbit (away-relative, positive-right, example: 0=outward)</field>
+           <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
+        </message>
+        <message id="9013" name="PLANCK_START_LEAD_FOLLOW">
+           <description>Instruction for vehicle to maintain a fixed X/Y position, relative to the landing platform in either earth-frame or platform-frame</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="float" name="altitude">Altitude in meters at which lead/follow takes place</field>
+           <field type="float" name="x_offset">Maintain x distance from landing platform (forward-positive for platform-frame, north-positive for earth-frame)</field>
+           <field type="float" name="y_offset">Maintain y distance from landing platform (starboard-positive for platform-frame, east-positive for earth-frame)</field>
+           <field type="uint8_t" name="frame">Reference frame (NORTH-EAST-DOWN=0, FORWARD-STARBOARD-DOWN=1)</field>
+           <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
+        </message>
+        <message id="9014" name="PLANCK_STOP_CONTROLLING">
            <description>Indicates to planck that it should stop sending command messages</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
