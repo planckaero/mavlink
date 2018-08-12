@@ -125,12 +125,14 @@
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
            <field type="float" name="alt" units="m">Altitude at which to return</field>
+           <field type="float" name="rate_up" units="m/s">Ascent rate during initial ascent</field>
+           <field type="float" name="rate_down" units="m/s">Descent rate before landing</field>
         </message>
         <message id="9011" name="PLANCK_START_LAND">
            <description>Indicates to planck that it should initiate a landing</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="float" name="field1">Bogus field</field>
+           <field type="float" name="rate" units="m/s">Descent rate to use during landing</field>
         </message>
         <message id="9012" name="PLANCK_START_ORBIT">
            <description>Instruction for vehicle to orbit landing platform at a fixed radius, at a fixed rate</description>
