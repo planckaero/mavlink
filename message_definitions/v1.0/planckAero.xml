@@ -25,6 +25,7 @@
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
+           <description>Planck drone state info message</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
            <field type="uint64_t" name="time_usec" units="us">Timestamp (micros since boot)</field>
@@ -46,6 +47,7 @@
            <field type="float" name="vd" units="m/s">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
         </message>
         <message id="9002" name="TARGET_STATE">
+           <description>State info for a target detected by camera</description>
            <field type="uint32_t" name="id">Target ID (1-based)</field>
            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
            <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
