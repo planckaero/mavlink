@@ -22,6 +22,9 @@
             <description>Enable Planck stateinfo data</description>
           </entry>
         </enum>
+        <enum name="COPTER_MODE">
+            <entry value="24" name="COPTER_MODE_PLANCKTRACKING"/>
+        </enum>
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
