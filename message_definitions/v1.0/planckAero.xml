@@ -90,7 +90,18 @@
            <field type="uint8_t" name="land_ready">Ready for landing</field>
            <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
         </message>
-        <message id="9006" name="PLANCK_ATT_CMD_MSG">
+        <message id="9006" name="PLANCK_ACCEL_CMD_MSG">
+           <description>Attitude and z velocity commands from planck_ctrl to APM</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
+           <field type="uint8_t" name="use_yaw_rate">If commanding a yaw or yaw rate</field>
+           <field type="float" name="acc_n" units="m/s/s">North acceleration</field>
+           <field type="float" name="acc_e" units="m/s/s">East acceleration</field>
+           <field type="float" name="yaw" units="rads">Yaw command</field>
+           <field type="float" name="yaw_rate" units="rads/s">Yaw rate command</field>
+           <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
+        </message>
+        <message id="9007" name="PLANCK_ATT_CMD_MSG">
            <description>Attitude and z velocity commands from planck_ctrl to APM</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
@@ -101,7 +112,7 @@
            <field type="float" name="yaw_rate" units="rads/s">Yaw rate command</field>
            <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
         </message>
-        <message id="9007" name="PLANCK_VEL_CMD_MSG">
+        <message id="9008" name="PLANCK_VEL_CMD_MSG">
            <description>Velocity commands from planck_ctrl to APM</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
@@ -110,7 +121,7 @@
            <field type="float" name="vz" units="m/s">Velocity command (Down)</field>
            <field type="float" name="yaw" units="rads">Yaw command</field>
         </message>
-        <message id="9008" name="PLANCK_POS_CMD_MSG">
+        <message id="9009" name="PLANCK_POS_CMD_MSG">
            <description>Position commands from planck_ctrl to APM</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
@@ -119,13 +130,13 @@
            <field type="int32_t" name="longitude" units="degE7">Longitude command</field>
            <field type="int32_t" name="altitude" units="mm">Altitude in meters, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
         </message>
-        <message id="9009" name="PLANCK_START_TAKEOFF">
+        <message id="9010" name="PLANCK_START_TAKEOFF">
            <description>Indicates to planck that it should initiate a takeoff</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
            <field type="float" name="alt" units="m">Target altitude above landing platform</field>
         </message>
-        <message id="9010" name="PLANCK_START_RETURN_TO_LANDING_PLATFORM">
+        <message id="9011" name="PLANCK_START_RETURN_TO_LANDING_PLATFORM">
            <description>Indicates to planck that it should initiate an RTL/RTB</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
@@ -133,13 +144,13 @@
            <field type="float" name="rate_up" units="m/s">Ascent rate during initial ascent</field>
            <field type="float" name="rate_down" units="m/s">Descent rate before landing</field>
         </message>
-        <message id="9011" name="PLANCK_START_LAND">
+        <message id="9012" name="PLANCK_START_LAND">
            <description>Indicates to planck that it should initiate a landing</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
            <field type="float" name="rate" units="m/s">Descent rate to use during landing</field>
         </message>
-        <message id="9012" name="PLANCK_START_ORBIT">
+        <message id="9013" name="PLANCK_START_ORBIT">
            <description>Instruction for vehicle to orbit landing platform at a fixed radius, at a fixed rate</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
@@ -149,7 +160,7 @@
            <field type="float" name="orientation">vehicle direction during orbit (away-relative, positive-right, example: 0=outward)</field>
            <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
         </message>
-        <message id="9013" name="PLANCK_START_LEAD_FOLLOW">
+        <message id="9014" name="PLANCK_START_LEAD_FOLLOW">
            <description>Instruction for vehicle to maintain a fixed X/Y position, relative to the landing platform in either earth-frame or platform-frame</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
@@ -159,7 +170,7 @@
            <field type="uint8_t" name="frame">Reference frame (NORTH-EAST-DOWN=0, FORWARD-STARBOARD-DOWN=1)</field>
            <field type="uint32_t" name="target">Target to track (LANDING-PLATFORM=0, >0 indicates target ID to track)</field>
         </message>
-        <message id="9014" name="PLANCK_STOP_CONTROLLING">
+        <message id="9015" name="PLANCK_STOP_CONTROLLING">
            <description>Indicates to planck that it should stop sending command messages</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
