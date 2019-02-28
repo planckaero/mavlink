@@ -24,6 +24,7 @@
         </enum>
         <enum name="COPTER_MODE">
             <entry value="24" name="COPTER_MODE_PLANCKTRACKING"/>
+            <entry value="25" name="COPTER_MODE_PLANCKLAND"/>
         </enum>
     </enums>
     <messages>
