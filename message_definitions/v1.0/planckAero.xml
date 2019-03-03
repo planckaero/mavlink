@@ -21,6 +21,10 @@
             <entry value="24" name="COPTER_MODE_PLANCKTRACKING"/>
             <entry value="25" name="COPTER_MODE_PLANCKLAND"/>
         </enum>
+        <enum name="MAV_CMD">
+            <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
+            <entry value="9002" name="MAV_CMD_NAV_PLANCK_RTB"/>
+        </enum>
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
