@@ -28,6 +28,7 @@
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
+           <description>State information sent to planck at high rate</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
            <field type="uint64_t" name="time_usec" units="us">Timestamp (micros since boot)</field>
