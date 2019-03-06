@@ -39,6 +39,9 @@
            <field type="float" name="roll" units="rad">Roll angle (rad, -pi..+pi)</field>
            <field type="float" name="pitch" units="rad">Pitch angle (rad, -pi..+pi)</field>
            <field type="float" name="yaw" units="rad">Yaw angle (rad, -pi..+pi)</field>
+           <field type="float" name="gyro_x" units="rad/s">X-axis gyro rate</field>
+           <field type="float" name="gyro_y" units="rad/s">Y-axis gyro rate</field>
+           <field type="float" name="gyro_z" units="rad/s">Z-axis gyro rate</field>
            <field type="float" name="xacc" units="m/s/s">X acceleration (raw)</field>
            <field type="float" name="yacc" units="m/s/s">Y acceleration (raw)</field>
            <field type="float" name="zacc" units="m/s/s">Z acceleration (raw)</field>
