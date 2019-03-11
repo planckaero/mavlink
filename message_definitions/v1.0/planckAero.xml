@@ -26,6 +26,12 @@
             <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
             <entry value="9002" name="MAV_CMD_NAV_PLANCK_RTB"/>
         </enum>
+        <enum name="PLANCK_CMD_REQ_TYPE">
+            <entry value="0" name="PLANCK_CMD_REQ_TAKEOFF"/>
+            <entry value="1" name="PLANCK_CMD_REQ_RTB"/>
+            <entry value="2" name="PLANCK_CMD_REQ_LAND"/>
+            <entry value="3" name="PLANCK_CMD_REQ_STOP"/>
+        </enum>
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
@@ -88,31 +94,17 @@
            <field type="float[3]" name="acc" units="m/s/s">Accelerations (NED)</field>
            <field type="float[3]" name="att" units="rads">Attitudes (NED)</field>
         </message>
-        <message id="9005" name="PLANCK_START_TAKEOFF">
-           <description>Indicates to planck that it should initiate a takeoff</description>
-           <field type="uint8_t" name="target_system">System ID</field>
-           <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="float" name="alt" units="m">Target altitude above landing platform</field>
-        </message>
-        <message id="9006" name="PLANCK_START_RETURN_TO_LANDING_PLATFORM">
-           <description>Indicates to planck that it should initiate an RTL/RTB</description>
-           <field type="uint8_t" name="target_system">System ID</field>
-           <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="float" name="alt" units="m">Altitude at which to return</field>
-           <field type="float" name="rate_up" units="m/s">Ascent rate during initial ascent</field>
-           <field type="float" name="rate_down" units="m/s">Descent rate before landing</field>
-        </message>
-        <message id="9007" name="PLANCK_START_LAND">
-           <description>Indicates to planck that it should initiate a landing</description>
-           <field type="uint8_t" name="target_system">System ID</field>
-           <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="float" name="rate" units="m/s">Descent rate to use during landing</field>
-        </message>
-        <message id="9008" name="PLANCK_STOP_CONTROLLING">
-           <description>Indicates to planck that it should stop sending command messages</description>
+        <message id="9005" name="PLANCK_CMD_REQUEST">
+           <description>Request commands from planck</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
-           <field type="uint8_t" name="stop">1: stop controlling, 0: keep controlling</field>
+           <field type="uint8_t" name="type">Command type (see PLANCK_CMD_REQ_TYPE enum)</field>
+           <field type="float" name="param1">First parameter (command-specific)</field>
+           <field type="float" name="param2">Second parameter (command-specific)</field>
+           <field type="float" name="param3">Third parameter (command-specific)</field>
+           <field type="float" name="param4">Fourth parameter (command-specific)</field>
+           <field type="float" name="param5">Fifth parameter (command-specific)</field>
+           <field type="float" name="param6">Sixth parameter (command-specific)</field>
         </message>
     </messages>
 </mavlink>
