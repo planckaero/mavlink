@@ -21,6 +21,7 @@
             <entry value="24" name="COPTER_MODE_PLANCKTRACKING"/>
             <entry value="25" name="COPTER_MODE_PLANCKRTB"/>
             <entry value="26" name="COPTER_MODE_PLANCKLAND"/>
+            <entry value="27" name="COPTER_MODE_PLANCKWINGMAN"/>
         </enum>
         <enum name="MAV_CMD">
             <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
@@ -31,7 +32,8 @@
             <entry value="1" name="PLANCK_CMD_REQ_ALT_CHANGE"/>
             <entry value="2" name="PLANCK_CMD_REQ_RTB"/>
             <entry value="3" name="PLANCK_CMD_REQ_LAND"/>
-            <entry value="4" name="PLANCK_CMD_REQ_STOP"/>
+            <entry value="4" name="PLANCK_CMD_REQ_WINGMAN"/>
+            <entry value="5" name="PLANCK_CMD_REQ_STOP"/>
         </enum>
     </enums>
     <messages>
