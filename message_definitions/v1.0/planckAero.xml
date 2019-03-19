@@ -29,11 +29,10 @@
         </enum>
         <enum name="PLANCK_CMD_REQ_TYPE">
             <entry value="0" name="PLANCK_CMD_REQ_TAKEOFF"/>
-            <entry value="1" name="PLANCK_CMD_REQ_ALT_CHANGE"/>
-            <entry value="2" name="PLANCK_CMD_REQ_RTB"/>
-            <entry value="3" name="PLANCK_CMD_REQ_LAND"/>
-            <entry value="4" name="PLANCK_CMD_REQ_WINGMAN"/>
-            <entry value="5" name="PLANCK_CMD_REQ_STOP"/>
+            <entry value="1" name="PLANCK_CMD_REQ_RTB"/>
+            <entry value="2" name="PLANCK_CMD_REQ_LAND"/>
+            <entry value="3" name="PLANCK_CMD_REQ_MOVE_TARGET"/>
+            <entry value="4" name="PLANCK_CMD_REQ_STOP"/>
         </enum>
     </enums>
     <messages>
