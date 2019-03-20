@@ -5,6 +5,7 @@
     <!-- email contact: info@planckaero.com.                        -->
     <enums>
         <enum name="PLANCK_STATUS_MODE">
+            <description></description>
             <entry value="0" name="PLANCK_IDLE"/>
             <entry value="1" name="PLANCK_TAKEOFF"/>
             <entry value="2" name="PLANCK_STAB"/>
@@ -35,6 +36,7 @@
     </enums>
     <messages>
         <message id="8000" name="STATE_INFO">
+            <description></description>
             <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
             <field type="float" name="roll">Roll angle (rad, -pi..+pi)</field>
             <field type="float" name="pitch">Pitch angle (rad, -pi..+pi)</field>
@@ -44,6 +46,7 @@
             <field type="int16_t" name="zacc">Z acceleration (raw)</field>
         </message>
         <message id="8001" name="TARGET_STATE">
+           <description></description>
            <field type="uint32_t" name="id">Target ID (1-based)</field>
            <field type="uint64_t" name="time_usec">Timestamp (micros since boot or Unix epoch)</field>
            <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
