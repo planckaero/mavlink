@@ -26,6 +26,7 @@
         <enum name="MAV_CMD">
             <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
             <entry value="9002" name="MAV_CMD_NAV_PLANCK_RTB"/>
+            <entry value="9003" name="MAV_CMD_NAV_PLANCK_WINGMAN"/>
         </enum>
         <enum name="PLANCK_CMD_REQ_TYPE">
             <entry value="0" name="PLANCK_CMD_REQ_TAKEOFF"/>
@@ -82,6 +83,7 @@
            <field type="uint8_t" name="takeoff_ready">Ready for takeoff</field>
            <field type="uint8_t" name="land_ready">Ready for landing</field>
            <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
+           <field type="uint8_t" name="at_location">Copter has reached target location</field>
         </message>
         <message id="9004" name="PLANCK_CMD_MSG">
            <description>Controller commands from planck to APM</description>
