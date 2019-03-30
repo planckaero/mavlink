@@ -57,7 +57,8 @@
            <field type="int32_t" name="lat" units="degE7">Latitude</field>
            <field type="int32_t" name="lon" units="degE7">Longitude</field>
            <field type="int32_t" name="alt" units="mm">Altitude, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
-           <field type="int32_t" name="relative_alt" units="mm">Altitude above ground in meters, expressed as * 1000 (millimeters)</field>
+           <field type="int32_t" name="relative_alt" units="mm">Altitude above home in meters, expressed as * 1000 (millimeters)</field>
+           <field type="int32_t" name="alt_above_terrain" units="mm">Altitude above terrain in meters, expressed as * 1000 (millimeters)</field>
            <field type="float" name="vn" units="m/s">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
            <field type="float" name="ve" units="m/s">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
            <field type="float" name="vd" units="m/s">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
