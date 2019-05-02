@@ -10,6 +10,7 @@
             <entry value="90" name="PLANCK_CTRL_COMP_ID"/>
             <entry value="34" name="PLANCK_GPS_COMP_ID"/>
             <entry value="69" name="PLANCK_COT_COMP_ID"/>
+            <entry value="32" name="PLANCK_BLACKBOX_COMP_ID"/>
         </enum>
         <enum name="MAV_DATA_STREAM_PLANCK">
           <description>Additional data stream for planck data.</description>
