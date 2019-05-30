@@ -7,6 +7,7 @@
         <enum name="PLANCK_SYSTEM_IDS">
             <description>Planck system and component IDs</description>
             <entry value="1" name="PLANCK_SYS_ID"/>
+            <entry value="255" name="PLANCK_GCS_SYS_ID"/>
             <entry value="90" name="PLANCK_CTRL_COMP_ID"/>
             <entry value="34" name="PLANCK_GPS_COMP_ID"/>
             <entry value="69" name="PLANCK_COT_COMP_ID"/>
