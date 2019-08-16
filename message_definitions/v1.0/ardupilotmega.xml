@@ -1027,6 +1027,7 @@
       <field type="float" name="zgyro" units="rad/s">Angular speed around Z axis rad/s</field>
       <field type="int32_t" name="lat" units="degE7">Latitude in degrees * 1E7</field>
       <field type="int32_t" name="lng" units="degE7">Longitude in degrees * 1E7</field>
+      <field type="int32_t" name="alt_msl" units="mm">Altitude in millimeters</field>
     </message>
     <message id="165" name="HWSTATUS">
       <description>Status of key hardware</description>
