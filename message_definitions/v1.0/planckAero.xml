@@ -138,5 +138,12 @@
            <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in body frame</field>
            <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in body frame</field>
         </message>
+        <message id="9008" name="PLANCK_LANDING_TAG_GLOBAL_POSITION_STATE">
+           <description>State information of the landing tag based on the ground station GPS</description>
+           <field type="int32_t" name="lat" units="degE7">Latitude deg * 1E7</field>
+           <field type="int32_t" name="lon" units="degE7">Longitude deg * 1E7</field>
+           <field type="float" name="alt" units="m">Altitude in meters</field>
+           <field type="float[3]" name="vel" units="m/s">Velocities (NED)</field>
+        </message>
     </messages>
 </mavlink>
