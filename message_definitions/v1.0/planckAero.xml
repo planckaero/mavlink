@@ -115,6 +115,8 @@
         </message>
         <message id="9006" name="PLANCK_LANDING_TAG_STATE_NED">
            <description>State information of the tag relative to the aircraft</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
            <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
            <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of the latest estimate in AP clock in microseconds</field>
            <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the NED frame</field>
@@ -129,6 +131,8 @@
         </message>
         <message id="9007" name="PLANCK_LANDING_TAG_STATE_BODY">
            <description>State information of the tag relative to the body frame</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
            <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
            <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds</field>
            <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the body frame</field>
@@ -140,6 +144,8 @@
         </message>
         <message id="9008" name="PLANCK_LANDING_TAG_GLOBAL_POSITION_STATE">
            <description>State information of the landing tag based on the ground station GPS</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
            <field type="int32_t" name="lat" units="degE7">Latitude deg * 1E7</field>
            <field type="int32_t" name="lon" units="degE7">Longitude deg * 1E7</field>
            <field type="float" name="alt" units="m">Altitude in meters</field>
