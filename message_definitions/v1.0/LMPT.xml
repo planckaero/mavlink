@@ -1,0 +1,8 @@
+<?xml version='1.0'?>
+<mavlink>
+    <enums>
+        <enum name="MAV_CMD">
+            <entry value="40003" name="MAV_CMD_DO_SCALE_WITH_ZOOM"/>
+        </enum>
+    </enums>
+</mavlink>
