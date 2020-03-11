@@ -6,6 +6,7 @@
   <include>icarous.xml</include>
   <include>planckAero.xml</include>
   <include>planckLegacy.xml</include>
+  <include>parrot.xml</include>
   <dialect>2</dialect>
   <!-- note that APM specific messages should use the command id range from 150 to 250, to leave plenty of room for growth of common.xml If you prototype a message here, then you should consider if it is general enough to move into common.xml later -->
   <enums>
@@ -1392,7 +1393,7 @@
       <field type="float" name="offdiag_y">Y off-diagonal (matrix 13 and 31)</field>
       <field type="float" name="offdiag_z">Z off-diagonal (matrix 32 and 23)</field>
       <extensions/>
-      <field type="float" name="orientation_confidence">Confidence in orientation (higher is better)</field>      
+      <field type="float" name="orientation_confidence">Confidence in orientation (higher is better)</field>
       <field type="uint8_t" name="old_orientation">orientation before calibration </field>
       <field type="uint8_t" name="new_orientation">orientation before calibration</field>
     </message>
@@ -1602,6 +1603,6 @@
       <field type="uint16_t[4]" name="rpm" units="rpm">RPM (eRPM)</field>
       <field type="uint16_t[4]" name="count">count of telemetry packets received (wraps at 65535)</field>
     </message>
-    
+
   </messages>
 </mavlink>
