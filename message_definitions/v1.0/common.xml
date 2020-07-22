@@ -4039,6 +4039,21 @@
       <entry value="2048" name="AIS_FLAGS_VALID_CALLSIGN"/>
       <entry value="4096" name="AIS_FLAGS_VALID_NAME"/>
     </enum>
+    <enum name="MAV_WINCH_STATUS_FLAG" bitmask="true">
+      <description>Winch status flags used in WINCH_STATUS</description>
+      <entry value="1" name="MAV_WINCH_STATUS_HEALTHY">
+        <description>Winch is healthy</description>
+      </entry>
+      <entry value="2" name="MAV_WINCH_STATUS_FULLY_RETRACTED">
+        <description>Winch thread is fully retracted</description>
+      </entry>
+      <entry value="4" name="MAV_WINCH_STATUS_MOVING">
+        <description>Winch motor is moving</description>
+      </entry>
+      <entry value="8" name="MAV_WINCH_STATUS_CLUTCH_ENGAGED">
+        <description>Winch clutch is engaged allowing motor to move freely</description>
+      </entry>
+    </enum>
   </enums>
   <messages>
     <message id="0" name="HEARTBEAT">
@@ -6215,6 +6230,19 @@
       <field type="uint8_t" name="single_message_size" units="bytes">This field must currently always be equal to 25 bytes, since all encoded OpenDroneID messages are specificed to have this length.</field>
       <field type="uint8_t" name="msg_pack_size">Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 10.</field>
       <field type="uint8_t[250]" name="messages">Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of the field.</field>
+    </message>
+    <message id="9005" name="WINCH_STATUS">
+      <wip/>
+      <!-- This message is work-in-progress and it can therefore change, and should NOT be used in stable production environments -->
+      <description>Winch status.</description>
+      <field type="uint64_t" name="time_usec" units="us">Timestamp (synced to UNIX time or since system boot).</field>
+      <field type="float" name="line_length" units="m">Length of line released. NaN if unknown</field>
+      <field type="float" name="speed" units="m/s">Speed line is being released or retracted. Positive values if being released, negative values if being retracted, NaN if unknown</field>
+      <field type="float" name="tension" units="kg">Tension on the line. NaN if unknown</field>
+      <field type="float" name="voltage" units="V">Voltage of the battery supplying the winch. NaN if unknown</field>
+      <field type="float" name="current" units="A">Current draw from the winch. NaN if unknown</field>
+      <field type="int16_t" name="temperature" units="degC">Temperature of the motor. INT16_MAX if unknown</field>
+      <field type="uint32_t" name="status" display="bitmask" enum="MAV_WINCH_STATUS_FLAG">Status flags</field>
     </message>
   </messages>
 </mavlink>
