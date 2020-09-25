@@ -12,6 +12,8 @@
             <entry value="34" name="PLANCK_GPS_COMP_ID"/>
             <entry value="69" name="PLANCK_COT_COMP_ID"/>
             <entry value="32" name="PLANCK_BLACKBOX_COMP_ID"/>
+            <entry value="200" name="PLANCK_DECK_SYS_ID"/>
+            <entry value="2" name="PLANCK_DECK_ARM_COMP_ID"/>
         </enum>
         <enum name="MAV_DATA_STREAM_PLANCK">
           <description>Additional data stream for planck data.</description>
@@ -38,6 +40,14 @@
             <entry value="2" name="PLANCK_CMD_REQ_LAND"/>
             <entry value="3" name="PLANCK_CMD_REQ_MOVE_TARGET"/>
             <entry value="4" name="PLANCK_CMD_REQ_STOP"/>
+        </enum>
+        <enum name="PLANCK_DECK_ARM_STATUS_TYPE">
+            <entry value="0" name="PLANCK_DECK_ARM_STATUS_OFF"/>
+            <entry value="1" name="PLANCK_DECK_ARM_STATUS_OPEN"/>
+            <entry value="2" name="PLANCK_DECK_ARM_STATUS_CLOSED"/>
+            <entry value="3" name="PLANCK_DECK_ARM_STATUS_OPENING"/>
+            <entry value="4" name="PLANCK_DECK_ARM_STATUS_CLOSING"/>
+            <entry value="5" name="PLANCK_DECK_ARM_STATUS_FAULT"/>
         </enum>
     </enums>
     <messages>
@@ -154,6 +164,10 @@
            <field type="float" name="vx" units="m/s">North velocity</field>
            <field type="float" name="vy" units="m/s">East velocity</field>
            <field type="float" name="vz" units="m/s">Down velocity</field>
+        </message>
+        <message id="9009" name="PLANCK_DECK_ARM_STATUS">
+           <description>Status of the DECK ARM system</description>
+	   <field type="uint8_t" name="status" enum="PLANCK_DECK_ARM_STATUS_TYPE">Status of the DECK ARM. See PLANCK_DECK_ARM_STATUS_TYPE enum</field>
         </message>
     </messages>
 </mavlink>
