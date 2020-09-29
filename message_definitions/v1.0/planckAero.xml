@@ -15,6 +15,7 @@
             <entry value="200" name="PLANCK_DECK_SYS_ID"/>
             <entry value="2" name="PLANCK_DECK_ARM_COMP_ID"/>
             <entry value="3" name="PLANCK_DECK_ESTOP_COMP_ID"/>
+            <entry value="4" name="PLANCK_DECK_POWER_COMP_ID"/>
         </enum>
         <enum name="MAV_DATA_STREAM_PLANCK">
           <description>Additional data stream for planck data.</description>
@@ -49,6 +50,11 @@
             <entry value="3" name="PLANCK_DECK_ARM_STATUS_OPENING"/>
             <entry value="4" name="PLANCK_DECK_ARM_STATUS_CLOSING"/>
             <entry value="5" name="PLANCK_DECK_ARM_STATUS_FAULT"/>
+        </enum>
+        <enum name="PLANCK_DECK_BATTERY_STATUS_TYPE">
+            <entry value="0" name="PLANCK_DECK_BATTERY_STATUS_CHARGING"/>
+            <entry value="1" name="PLANCK_DECK_BATTERY_STATUS_DISCHARGING"/>
+            <entry value="2" name="PLANCK_DECK_BATTERY_STATUS_FAILED"/>
         </enum>
     </enums>
     <messages>
@@ -173,6 +179,11 @@
         <message id="9010" name="PLANCK_DECK_ESTOP_STATUS">
            <description>Status of the DECK ESTOP button</description>
 	        <field type="uint8_t" name="status">Status of the DECK E-stop. 0: no E-Stop event. 1: E-Stop event</field>
+        </message>
+        <message id="9011" name="PLANCK_DECK_POWER_STATUS">
+           <description>Status of the DECK battery and 400v power</description>
+	        <field type="uint8_t" name="batt_status" enum="PLANCK_DECK_BATTERY_STATUS_TYPE">Status of the DECK battery. See PLANCK_DECK_BATTERY_STATUS_TYPE enum</field>
+	        <field type="uint8_t" name="fourhundredvolt_status">Status of the DECK 400v output. 0: Off 1: On</field>
         </message>
     </messages>
 </mavlink>
