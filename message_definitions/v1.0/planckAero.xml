@@ -14,6 +14,7 @@
             <entry value="32" name="PLANCK_BLACKBOX_COMP_ID"/>
             <entry value="200" name="PLANCK_DECK_SYS_ID"/>
             <entry value="2" name="PLANCK_DECK_ARM_COMP_ID"/>
+            <entry value="3" name="PLANCK_DECK_ESTOP_COMP_ID"/>
         </enum>
         <enum name="MAV_DATA_STREAM_PLANCK">
           <description>Additional data stream for planck data.</description>
