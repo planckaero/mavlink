@@ -167,7 +167,11 @@
         </message>
         <message id="9009" name="PLANCK_DECK_ARM_STATUS">
            <description>Status of the DECK ARM system</description>
-	   <field type="uint8_t" name="status" enum="PLANCK_DECK_ARM_STATUS_TYPE">Status of the DECK ARM. See PLANCK_DECK_ARM_STATUS_TYPE enum</field>
+	        <field type="uint8_t" name="status" enum="PLANCK_DECK_ARM_STATUS_TYPE">Status of the DECK ARM. See PLANCK_DECK_ARM_STATUS_TYPE enum</field>
+        </message>
+        <message id="9010" name="PLANCK_DECK_ESTOP_STATUS">
+           <description>Status of the DECK ESTOP button</description>
+	        <field type="uint8_t" name="status">Status of the DECK E-stop. 0: no E-Stop event. 1: E-Stop event</field>
         </message>
     </messages>
 </mavlink>
