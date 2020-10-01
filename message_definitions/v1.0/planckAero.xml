@@ -119,7 +119,7 @@
            <description>Estimated state information of the tag relative to the aircraft in NED</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
            <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of the latest estimate in AP clock in microseconds</field>
            <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the NED frame</field>
            <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the NED frame</field>
@@ -135,7 +135,7 @@
            <description>Measured state information of the tag relative to the body frame</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
            <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds</field>
            <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the body frame</field>
            <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the body frame</field>
