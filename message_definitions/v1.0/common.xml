@@ -171,6 +171,9 @@
       <entry value="33" name="MAV_TYPE_SERVO">
         <description>Servo</description>
       </entry>
+      <entry value="34" name="MAV_TYPE_TETHER">
+        <description>Tether tensioning system</description>
+      </entry>
     </enum>
     <enum name="FIRMWARE_VERSION_TYPE">
       <description>These values define the type of firmware release.  These values indicate the first version or release of this type.  For example the first alpha release would be 64, the second would be 65.</description>
