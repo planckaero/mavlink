@@ -12,6 +12,7 @@
             <entry value="34" name="PLANCK_GPS_COMP_ID"/>
             <entry value="69" name="PLANCK_COT_COMP_ID"/>
             <entry value="32" name="PLANCK_BLACKBOX_COMP_ID"/>
+            <entry value="41" name="PLANCK_ANAFI_SUP_COMP_ID"/>
         </enum>
         <enum name="MAV_DATA_STREAM_PLANCK">
           <description>Additional data stream for planck data.</description>
@@ -38,6 +39,22 @@
             <entry value="2" name="PLANCK_CMD_REQ_LAND"/>
             <entry value="3" name="PLANCK_CMD_REQ_MOVE_TARGET"/>
             <entry value="4" name="PLANCK_CMD_REQ_STOP"/>
+        </enum>
+        <enum name="PLANCK_CTRL_FLIGHTMODE">
+            <entry value="0" name="PLANCK_CTRL_FLIGHTMODE_IDLE"/>
+            <entry value="1" name="PLANCK_CTRL_FLIGHTMODE_TAKEOFF"/>
+            <entry value="2" name="PLANCK_CTRL_FLIGHTMODE_RETURN_TO_BOAT"/>
+            <entry value="3" name="PLANCK_CTRL_FLIGHTMODE_LAND"/>
+            <entry value="4" name="PLANCK_CTRL_FLIGHTMODE_TRACKING"/>
+        </enum>
+        <enum name="PLANCK_ANAFI_SUBMODE">
+            <entry value="0" name="PLANCK_ANAFI_SUBMODE_PLANCKIDLE"/>
+            <entry value="1" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFF"/>
+            <entry value="2" name="PLANCK_ANAFI_SUBMODE_PLANCKTRACK"/>
+            <entry value="3" name="PLANCK_ANAFI_SUBMODE_PLANCKRTB"/>
+            <entry value="4" name="PLANCK_ANAFI_SUBMODE_PLANCKLAND"/>
+            <entry value="5" name="PLANCK_ANAFI_SUBMODE_PLANCKWINGMAN"/>
+            <entry value="6" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFFDRIFT"/>
         </enum>
     </enums>
     <messages>
