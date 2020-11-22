@@ -12,6 +12,7 @@
             <entry value="34" name="PLANCK_GPS_COMP_ID"/>
             <entry value="69" name="PLANCK_COT_COMP_ID"/>
             <entry value="32" name="PLANCK_BLACKBOX_COMP_ID"/>
+            <entry value="41" name="PLANCK_ANAFI_SUP_COMP_ID"/>
         </enum>
         <enum name="MAV_DATA_STREAM_PLANCK">
           <description>Additional data stream for planck data.</description>
@@ -29,6 +30,8 @@
             <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
             <entry value="9002" name="MAV_CMD_NAV_PLANCK_RTB"/>
             <entry value="9003" name="MAV_CMD_NAV_PLANCK_WINGMAN"/>
+            <entry value="9004" name="MAV_CMD_NAV_PLANCK_LAND"/>
+            <entry value="9005" name="MAV_CMD_NAV_PLANCK_TRACK"/>
         </enum>
         <enum name="PLANCK_CMD_REQ_TYPE">
             <entry value="0" name="PLANCK_CMD_REQ_TAKEOFF"/>
@@ -36,6 +39,22 @@
             <entry value="2" name="PLANCK_CMD_REQ_LAND"/>
             <entry value="3" name="PLANCK_CMD_REQ_MOVE_TARGET"/>
             <entry value="4" name="PLANCK_CMD_REQ_STOP"/>
+        </enum>
+        <enum name="PLANCK_CTRL_FLIGHTMODE">
+            <entry value="0" name="PLANCK_CTRL_FLIGHTMODE_IDLE"/>
+            <entry value="1" name="PLANCK_CTRL_FLIGHTMODE_TAKEOFF"/>
+            <entry value="2" name="PLANCK_CTRL_FLIGHTMODE_RETURN_TO_BOAT"/>
+            <entry value="3" name="PLANCK_CTRL_FLIGHTMODE_LAND"/>
+            <entry value="4" name="PLANCK_CTRL_FLIGHTMODE_TRACKING"/>
+        </enum>
+        <enum name="PLANCK_ANAFI_SUBMODE">
+            <entry value="0" name="PLANCK_ANAFI_SUBMODE_PLANCKIDLE"/>
+            <entry value="1" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFF"/>
+            <entry value="2" name="PLANCK_ANAFI_SUBMODE_PLANCKTRACK"/>
+            <entry value="3" name="PLANCK_ANAFI_SUBMODE_PLANCKRTB"/>
+            <entry value="4" name="PLANCK_ANAFI_SUBMODE_PLANCKLAND"/>
+            <entry value="5" name="PLANCK_ANAFI_SUBMODE_PLANCKWINGMAN"/>
+            <entry value="6" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFFDRIFT"/>
         </enum>
     </enums>
     <messages>
@@ -117,7 +136,7 @@
            <description>Estimated state information of the tag relative to the aircraft in NED</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
            <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of the latest estimate in AP clock in microseconds</field>
            <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the NED frame</field>
            <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the NED frame</field>
@@ -133,7 +152,7 @@
            <description>Measured state information of the tag relative to the body frame</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint32_t" name="age" units="milliseconds">Age of the latest measurement in milliseconds</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
            <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds</field>
            <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the body frame</field>
            <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the body frame</field>
