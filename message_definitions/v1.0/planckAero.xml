@@ -58,13 +58,21 @@
             <entry value="2" name="PLANCK_DECK_BATTERY_STATUS_FAILED"/>
         </enum>
         <enum name="PLANCK_DECK_TETHER_HV_STATUS_TYPE">
-            <entry value="0" name="OFF"/>
-            <entry value="1" name="ON"/>
-            <entry value="2" name="DUMPING"/>
-            <entry value="3" name="STARTING_UP"/>
-            <entry value="4" name="RESTART_DELAY"/>
-            <entry value="5" name="ERROR"/>
-            <entry value="6" name="E_STOP"/>
+            <entry value="0" name="PLANCK_DECK_TETHER_HV_OFF"/>
+            <entry value="1" name="PLANCK_DECK_TETHER_HV_ON"/>
+            <entry value="2" name="PLANCK_DECK_TETHER_HV_DUMPING"/>
+            <entry value="3" name="PLANCK_DECK_TETHER_HV_STARTING_UP"/>
+            <entry value="4" name="PLANCK_DECK_TETHER_HV_RESTART_DELAY"/>
+            <entry value="5" name="PLANCK_DECK_TETHER_HV_ERROR"/>
+            <entry value="6" name="PLANCK_DECK_TETHER_HV_E_STOP"/>
+        </enum>
+        <enum name="PLANCK_DECK_TETHER_SPOOL_STATUS_TYPE">
+            <entry value="0" name="PLANCK_DECK_SPOOL_NORMAL"/>
+            <entry value="1" name="PLANCK_DECK_SPOOL_RETRIEVE"/>
+            <entry value="2" name="PLANCK_DECK_SPOOL_RELEASE"/>
+            <entry value="3" name="PLANCK_DECK_SPOOL_LOCKED"/>
+            <entry value="4" name="PLANCK_DECK_SPOOL_EOL_WARNING"/>
+            <entry value="5" name="PLANCK_DECK_SPOOL_EOL_ERROR"/>
         </enum>
     </enums>
     <messages>
@@ -195,9 +203,9 @@
 	        <field type="uint8_t" name="batt_status" enum="PLANCK_DECK_BATTERY_STATUS_TYPE">Status of the DECK battery. See PLANCK_DECK_BATTERY_STATUS_TYPE enum</field>
 	        <field type="uint8_t" name="fourhundredvolt_status">Status of the DECK 400v output. 0: Off 1: On</field>
         </message>
-           <message id="9012" name="PLANCK_DECK_TETHER_STATUS">
+        <message id="9012" name="PLANCK_DECK_TETHER_STATUS">
            <description>Status of the TETHER system</description>
-	   <field type="float" name="CABLE_OUT">Number of feet of cable spooled out</field>
+           <field type="float" name="CABLE_OUT">Number of feet of cable spooled out</field>
            <field type="float" name="CABLE_VELOCITY">Current cable speed in ft/s</field>
            <field type="uint8_t" name="CABLE_TENSION">Current cable tension as percentag of max</field>
            <field type="uint8_t" name="HV_POWER">Status of high voltage subsystem (see PLANCK_DECK_TETHER_HV_STATUS_TYPE)</field>
