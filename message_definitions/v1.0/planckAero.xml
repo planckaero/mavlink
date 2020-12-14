@@ -208,11 +208,11 @@
            <field type="float" name="CABLE_OUT">Number of feet of cable spooled out</field>
            <field type="float" name="CABLE_VELOCITY">Current cable speed in ft/s</field>
            <field type="uint8_t" name="CABLE_TENSION">Current cable tension as percentag of max</field>
-           <field type="uint8_t" name="HV_POWER">Status of high voltage subsystem (see PLANCK_DECK_TETHER_HV_STATUS_TYPE)</field>
-           <field type="uint8_t" name="HV_TEMPERATURE">Current temp of  HV subsystem in def F</field>
-           <field type="uint8_t" name="HV_WATTS">Power being supplied to the tether in Watts</field>
+           <field type="uint8_t" name="HV_POWER" enum="PLANCK_DECK_TETHER_HV_STATUS_TYPE">Status of high voltage subsystem (see PLANCK_DECK_TETHER_HV_STATUS_TYPE)</field>
+           <field type="float" name="HV_TEMPERATURE">Current temp of  HV subsystem in def F</field>
+           <field type="float" name="HV_WATTS">Power being supplied to the tether in Watts</field>
            <field type="uint8_t" name="SILENT_MODE">Status of silent mode (ON=1,OFF=0)</field>
-           <field type="uint8_t" name="SPOOL_STATUS">Current Spool Control mode (NORMAL=0,RETRIEVE=1,RELEASE=2,LOCKED=3,EOL_WARNING=4,EOL_ERROR=5)</field>
+           <field type="uint8_t" name="SPOOL_STATUS" enum="PLANCK_DECK_TETHER_SPOOL_STATUS_TYPE">Current Spool Control mode (see PLANCK_DECK_TETHER_SPOOL_STATUS_TYPE)</field>
            <field type="uint8_t" name="SYSTEM_STATUS">Current system status (FULL_AUTO=0,MANUAL=1,ERROR=2,ESTOP=3,FACTORY=4)</field>
         </message>
     </messages>
