@@ -1,0 +1,174 @@
+<?xml version='1.0'?>
+<mavlink>
+    <!-- PlanckAerosystems contact info:                            -->
+    <!-- company URL: http://planckaero.com/                        -->
+    <!-- email contact: info@planckaero.com.                        -->
+    <enums>
+        <enum name="PLANCK_COMP_IDS">
+            <description>Planck system and component IDs</description>
+            <entry value="90" name="PLANCK_CTRL_COMP_ID"/>
+            <entry value="34" name="PLANCK_GPS_COMP_ID"/>
+            <entry value="69" name="PLANCK_COT_COMP_ID"/>
+            <entry value="32" name="PLANCK_BLACKBOX_COMP_ID"/>
+            <entry value="41" name="PLANCK_ANAFI_SUP_COMP_ID"/>
+        </enum>
+        <enum name="MAV_DATA_STREAM_PLANCK">
+          <description>Additional data stream for planck data.</description>
+          <entry value="99" name="MAV_DATA_STREAM_PLANCK_STATEINFO">
+            <description>Enable Planck stateinfo data</description>
+          </entry>
+        </enum>
+        <enum name="COPTER_MODE">
+            <entry value="24" name="COPTER_MODE_PLANCKTRACKING"/>
+            <entry value="25" name="COPTER_MODE_PLANCKRTB"/>
+            <entry value="26" name="COPTER_MODE_PLANCKLAND"/>
+            <entry value="27" name="COPTER_MODE_PLANCKWINGMAN"/>
+        </enum>
+        <enum name="MAV_CMD">
+            <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
+            <entry value="9002" name="MAV_CMD_NAV_PLANCK_RTB"/>
+            <entry value="9003" name="MAV_CMD_NAV_PLANCK_WINGMAN"/>
+            <entry value="9004" name="MAV_CMD_NAV_PLANCK_LAND"/>
+            <entry value="9005" name="MAV_CMD_NAV_PLANCK_TRACK"/>
+        </enum>
+        <enum name="PLANCK_CMD_REQ_TYPE">
+            <entry value="0" name="PLANCK_CMD_REQ_TAKEOFF"/>
+            <entry value="1" name="PLANCK_CMD_REQ_RTB"/>
+            <entry value="2" name="PLANCK_CMD_REQ_LAND"/>
+            <entry value="3" name="PLANCK_CMD_REQ_MOVE_TARGET"/>
+            <entry value="4" name="PLANCK_CMD_REQ_STOP"/>
+        </enum>
+        <enum name="PLANCK_CTRL_FLIGHTMODE">
+            <entry value="0" name="PLANCK_CTRL_FLIGHTMODE_IDLE"/>
+            <entry value="1" name="PLANCK_CTRL_FLIGHTMODE_TAKEOFF"/>
+            <entry value="2" name="PLANCK_CTRL_FLIGHTMODE_RETURN_TO_BOAT"/>
+            <entry value="3" name="PLANCK_CTRL_FLIGHTMODE_LAND"/>
+            <entry value="4" name="PLANCK_CTRL_FLIGHTMODE_TRACKING"/>
+        </enum>
+        <enum name="PLANCK_ANAFI_SUBMODE">
+            <entry value="0" name="PLANCK_ANAFI_SUBMODE_PLANCKIDLE"/>
+            <entry value="1" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFF"/>
+            <entry value="2" name="PLANCK_ANAFI_SUBMODE_PLANCKTRACK"/>
+            <entry value="3" name="PLANCK_ANAFI_SUBMODE_PLANCKRTB"/>
+            <entry value="4" name="PLANCK_ANAFI_SUBMODE_PLANCKLAND"/>
+            <entry value="5" name="PLANCK_ANAFI_SUBMODE_PLANCKWINGMAN"/>
+            <entry value="6" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFFDRIFT"/>
+        </enum>
+    </enums>
+    <messages>
+        <message id="9001" name="PLANCK_STATEINFO">
+           <description>State information sent to planck at high rate</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint64_t" name="time_usec" units="us">Timestamp (micros since boot)</field>
+           <field type="uint64_t" name="time_unix_usec" units="us">Timestamp of the master clock in microseconds since UNIX epoch</field>
+           <field type="uint8_t" name="mode">Current flight mode</field>
+           <field type="uint8_t" name="status">Flight status: bit0:armed, bit1:in_flight, bit2:failsafe</field>
+           <field type="float" name="roll" units="rad">Roll angle (rad, -pi..+pi)</field>
+           <field type="float" name="pitch" units="rad">Pitch angle (rad, -pi..+pi)</field>
+           <field type="float" name="yaw" units="rad">Yaw angle (rad, -pi..+pi)</field>
+           <field type="float" name="gyro_x" units="rad/s">X-axis gyro rate</field>
+           <field type="float" name="gyro_y" units="rad/s">Y-axis gyro rate</field>
+           <field type="float" name="gyro_z" units="rad/s">Z-axis gyro rate</field>
+           <field type="float" name="xacc" units="m/s/s">X acceleration (raw)</field>
+           <field type="float" name="yacc" units="m/s/s">Y acceleration (raw)</field>
+           <field type="float" name="zacc" units="m/s/s">Z acceleration (raw)</field>
+           <field type="int32_t" name="lat" units="degE7">Latitude</field>
+           <field type="int32_t" name="lon" units="degE7">Longitude</field>
+           <field type="int32_t" name="alt" units="mm">Altitude, expressed as * 1000 (millimeters), AMSL (not WGS84 - note that virtually all GPS modules provide the AMSL as well)</field>
+           <field type="int32_t" name="relative_alt" units="mm">Altitude above home in meters, expressed as * 1000 (millimeters)</field>
+           <field type="int32_t" name="alt_above_terrain" units="mm">Altitude above terrain in meters, expressed as * 1000 (millimeters)</field>
+           <field type="float" name="vn" units="m/s">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
+           <field type="float" name="ve" units="m/s">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
+           <field type="float" name="vd" units="m/s">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
+        </message>
+        <message id="9002" name="PLANCK_LANDING_PLATFORM_STATE">
+           <description>The state of a landing platform, including WGS84 position and pose information (roll/pitch/yaw) in earth frame</description>
+           <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
+           <field type="int32_t" name="longitude">Longitude (WGS84, in degrees * 1E7</field>
+           <field type="int32_t" name="altitude">Altitude (AMSL), in meters * 1000 (positive for up)</field>
+           <field type="float" name="vn">GPS velocity in m/s in NORTH direction in earth-fixed NED frame</field>
+           <field type="float" name="ve">GPS velocity in m/s in EAST direction in earth-fixed NED frame</field>
+           <field type="float" name="vd">GPS velocity in m/s in DOWN direction in earth-fixed NED frame</field>
+           <field type="float" name="roll">Roll in degrees of the platform</field>
+           <field type="float" name="pitch">Pitch in degrees of the platform</field>
+           <field type="float" name="yaw">Yaw in degrees of the platform</field>
+        </message>
+        <message id="9003" name="PLANCK_STATUS">
+           <description>The state of the planck's control software</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint8_t" name="status">Controller status bitfield (TAG_ESTIMATOR_OK=bit0, BOAT_ESTIMATOR_OK=bit1)</field>
+           <field type="uint8_t" name="failsafe">Failsafe status bitfield (COMMBOX_OK=bit0, COMMBOX_GPS_OK)</field>
+           <field type="uint8_t" name="takeoff_ready">Ready for takeoff</field>
+           <field type="uint8_t" name="land_ready">Ready for landing</field>
+           <field type="uint8_t" name="takeoff_complete">Takeoff has completed (reached target altitude)</field>
+           <field type="uint8_t" name="at_location">Copter has reached target location</field>
+        </message>
+        <message id="9004" name="PLANCK_CMD_MSG">
+           <description>Controller commands from planck to APM</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
+           <field type="uint8_t" name="frame" enum="MAV_FRAME">mav frame, see MAV_FRAME enum</field>
+           <field type="uint16_t" name="type_mask">Fields which are valid: b1:lat, b2:lon, b3:alt, b4:vx, b5:vy, b6:vz, b7:ax, b8:ay, b9:az, b10:roll, b11:pitch, b12:yaw, b13:yaw is rate</field>
+           <field type="int32_t" name="lat" units="degE7">Latitude deg * 1E7</field>
+           <field type="int32_t" name="lon" units="degE7">Longitude deg * 1E7</field>
+           <field type="float" name="alt" units="m">Altitude in meters</field>
+           <field type="float[3]" name="vel" units="m/s">Velocities (NED)</field>
+           <field type="float[3]" name="acc" units="m/s/s">Accelerations (NED)</field>
+           <field type="float[3]" name="att" units="rads">Attitudes (NED)</field>
+        </message>
+        <message id="9005" name="PLANCK_CMD_REQUEST">
+           <description>Request commands from planck</description>
+           <field type="uint8_t" name="target_system">System which should execute the command</field>
+           <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
+           <field type="uint8_t" name="type">Command type (see PLANCK_CMD_REQ_TYPE enum)</field>
+           <field type="float" name="param1">First parameter (command-specific)</field>
+           <field type="float" name="param2">Second parameter (command-specific)</field>
+           <field type="float" name="param3">Third parameter (command-specific)</field>
+           <field type="float" name="param4">Fourth parameter (command-specific)</field>
+           <field type="float" name="param5">Fifth parameter (command-specific)</field>
+           <field type="float" name="param6">Sixth parameter (command-specific)</field>
+        </message>
+        <message id="9006" name="PLANCK_LANDING_TAG_ESTIMATE_NED">
+           <description>Estimated state information of the tag relative to the aircraft in NED</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
+           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of the latest estimate in AP clock in microseconds</field>
+           <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="z" units="meters">Z position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="vx" units="m/s">X velocity of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="vy" units="m/s">Y velocity of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="vz" units="m/s">Z velocity of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="roll" units="rads">Euler angle roll of the tag in NED frame</field>
+           <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in NED frame</field>
+           <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in NED frame</field>
+        </message>
+        <message id="9007" name="PLANCK_LANDING_TAG_MEASUREMENT_BODY">
+           <description>Measured state information of the tag relative to the body frame</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
+           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds</field>
+           <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="z" units="meters">Z position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="roll" units="rads">Euler angle roll of the tag in body frame</field>
+           <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in body frame</field>
+           <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in body frame</field>
+        </message>
+        <message id="9008" name="PLANCK_LANDING_TAG_ESTIMATE_GPS">
+           <description>State information of the landing tag based on the ground station GPS, adjusted by tag measurements if available</description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="int32_t" name="lat" units="degE7">Latitude deg * 1E7</field>
+           <field type="int32_t" name="lon" units="degE7">Longitude deg * 1E7</field>
+           <field type="float" name="alt" units="m">Altitude in meters</field>
+           <field type="float" name="vx" units="m/s">North velocity</field>
+           <field type="float" name="vy" units="m/s">East velocity</field>
+           <field type="float" name="vz" units="m/s">Down velocity</field>
+        </message>
+    </messages>
+</mavlink>
