@@ -5231,7 +5231,7 @@
       <field type="uint8_t" name="count">Number of wheels reported.</field>
       <field type="double[16]" name="distance" units="m">Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.</field>
     </message>
-    <message id="9005" name="WINCH_STATUS">
+    <message id="8005" name="WINCH_STATUS">
       <wip/>
       <!-- This message is work-in-progress and it can therefore change, and should NOT be used in stable production environments -->
       <description>Winch status.</description>
