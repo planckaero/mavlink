@@ -30,7 +30,7 @@
             <entry value="9003" name="MAV_CMD_NAV_PLANCK_WINGMAN"/>
             <entry value="9004" name="MAV_CMD_NAV_PLANCK_LAND"/>
             <entry value="9005" name="MAV_CMD_NAV_PLANCK_TRACK"/>
-            <entry value="9101" name="MAV_CMD_NAV_PLANCK_FINDANDLAND"/>
+            <entry value="9101" name="MAV_CMD_NAV_PAYLOAD_RECOVER"/>
         </enum>
         <enum name="PLANCK_CMD_REQ_TYPE">
             <entry value="0" name="PLANCK_CMD_REQ_TAKEOFF"/>
