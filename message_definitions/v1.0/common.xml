@@ -7019,7 +7019,7 @@
       <field type="uint8_t" name="count">Number of wheels reported.</field>
       <field type="double[16]" name="distance" units="m">Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.</field>
     </message>
-    <message id="9005" name="WINCH_STATUS">
+    <!-- <message id="9005" name="WINCH_STATUS">
       <description>Winch status.</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (synced to UNIX time or since system boot).</field>
       <field type="float" name="line_length" units="m" invalid="NaN">Length of line released. NaN if unknown</field>
@@ -7029,7 +7029,7 @@
       <field type="float" name="current" units="A" invalid="NaN">Current draw from the winch. NaN if unknown</field>
       <field type="int16_t" name="temperature" units="degC" invalid="INT16_MAX">Temperature of the motor. INT16_MAX if unknown</field>
       <field type="uint32_t" name="status" display="bitmask" enum="MAV_WINCH_STATUS_FLAG">Status flags</field>
-    </message>
+    </message> -->
     <message id="12900" name="OPEN_DRONE_ID_BASIC_ID">
       <wip/>
       <!-- This message is work-in-progress and it can therefore change, and should NOT be used in stable production environments -->
