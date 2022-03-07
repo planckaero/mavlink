@@ -15,6 +15,7 @@
             <entry value="3" name="PLANCK_DECK_ESTOP_COMP_ID"/>
             <entry value="4" name="PLANCK_DECK_POWER_COMP_ID"/>
             <entry value="5" name="PLANCK_DECK_TETHER_COMP_ID"/>
+            <entry value="6" name="PLANCK_DECK_LID_COMP_ID"/>
         </enum>
         <enum name="MAV_DATA_STREAM_PLANCK">
           <description>Additional data stream for planck data.</description>
@@ -71,6 +72,16 @@
             <entry value="3" name="PLANCK_DECK_SPOOL_LOCKED"/>
             <entry value="4" name="PLANCK_DECK_SPOOL_EOL_WARNING"/>
             <entry value="5" name="PLANCK_DECK_SPOOL_EOL_ERROR"/>
+        </enum>
+        <enum name="PLANCK_LID_CMD_REQ_TYPE">
+            <entry value="1" name="PLANCK_CMD_REQ_LIFT_UP"/>
+            <entry value="2" name="PLANCK_CMD_REQ_LIFT_DOWN"/>
+            <entry value="4" name="PLANCK_CMD_REQ_LID_CLOSED"/>
+            <entry value="5" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_UP"/>
+            <entry value="6" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_DOWN"/>
+            <entry value="8" name="PLANCK_CMD_REQ_LID_OPEN"/>
+            <entry value="9" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_UP"/>
+            <entry value="10" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_DOWN"/>
         </enum>
     </enums>
     <messages>
@@ -212,6 +223,10 @@
            <field type="uint8_t" name="SILENT_MODE">Status of silent mode (ON=1,OFF=0)</field>
            <field type="uint8_t" name="SPOOL_STATUS" enum="PLANCK_DECK_TETHER_SPOOL_STATUS_TYPE">Current Spool Control mode (see PLANCK_DECK_TETHER_SPOOL_STATUS_TYPE)</field>
            <field type="uint8_t" name="SYSTEM_STATUS">Current system status (FULL_AUTO=0,MANUAL=1,ERROR=2,ESTOP=3,FACTORY=4)</field>
+        </message>
+        <message id="9013" name="PLANCK_DECK_LID_STATUS">
+           <description>Status of the DECK LID system</description>
+	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift. 8 bits inidcate status of lift and lid relays and ADC limit switches </field>
         </message>
     </messages>
 </mavlink>
