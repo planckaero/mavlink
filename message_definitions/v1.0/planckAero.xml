@@ -83,6 +83,17 @@
             <entry value="9" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_UP"/>
             <entry value="10" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_DOWN"/>
         </enum>
+        <enum name="PLANCK_DECK_LID_STATUS_TYPE">
+            <entry value="0" name="PLANCK_DECK_LID_STATUS_OFF"/>
+            <entry value="1" name="PLANCK_DECK_LIFT_RELAY_UP"/>
+            <entry value="2" name="PLANCK_DECK_LIFT_RELAY_DOWN"/>
+            <entry value="4" name="PLANCK_DECK_LID_RELAY_OPEN"/>
+            <entry value="8" name="PLANCK_DECK_LID_RELAY_CLOSED"/>
+            <entry value="16" name="PLANCK_DECK_LIFT_ADC_FULL_UP"/>
+            <entry value="32" name="PLANCK_DECK_LIFT_ADC_FULL_DOWN"/>
+            <entry value="64" name="PLANCK_DECK_LID_ADC_FULL_OPEN"/>
+            <entry value="128" name="PLANCK_DECK_LID_ADC_FULL_CLOSED"/>
+        </enum>
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
@@ -226,7 +237,7 @@
         </message>
         <message id="9013" name="PLANCK_DECK_LID_STATUS">
            <description>Status of the DECK LID system</description>
-	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift. 8 bits inidcate status of lift and lid relays and ADC limit switches </field>
+	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift: b1:lift relay up, b2:lift relay down, b3:lid relay open, b4:lid relay closed, b5:lift adc up, b6:lift adc down, b7:lid adc open, b8:lid adc closed, </field>
         </message>
     </messages>
 </mavlink>
