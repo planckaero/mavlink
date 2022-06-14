@@ -87,8 +87,8 @@
             <entry value="0" name="PLANCK_DECK_LID_STATUS_OFF"/>
             <entry value="1" name="PLANCK_DECK_LIFT_RELAY_DOWN"/>
             <entry value="2" name="PLANCK_DECK_LIFT_RELAY_UP"/>
-            <entry value="4" name="PLANCK_DECK_LID_RELAY_OPEN"/>
-            <entry value="8" name="PLANCK_DECK_LID_RELAY_CLOSED"/>
+            <entry value="4" name="PLANCK_DECK_LID_RELAY_CLOSED"/>
+            <entry value="8" name="PLANCK_DECK_LID_RELAY_OPEN"/>
             <entry value="16" name="PLANCK_DECK_LIFT_ADC_TAKEOFF_READY"/>
         </enum>
     </enums>
