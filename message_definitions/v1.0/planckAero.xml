@@ -74,21 +74,21 @@
             <entry value="5" name="PLANCK_DECK_SPOOL_EOL_ERROR"/>
         </enum>
         <enum name="PLANCK_LID_CMD_REQ_TYPE">
-            <entry value="1" name="PLANCK_CMD_REQ_LIFT_UP"/>
-            <entry value="2" name="PLANCK_CMD_REQ_LIFT_DOWN"/>
+            <entry value="1" name="PLANCK_CMD_REQ_LIFT_DOWN"/>
+            <entry value="2" name="PLANCK_CMD_REQ_LIFT_UP"/>
             <entry value="4" name="PLANCK_CMD_REQ_LID_CLOSED"/>
-            <entry value="5" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_UP"/>
-            <entry value="6" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_DOWN"/>
+            <entry value="5" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_DOWN"/>
+            <entry value="6" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_UP"/>
             <entry value="8" name="PLANCK_CMD_REQ_LID_OPEN"/>
-            <entry value="9" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_UP"/>
-            <entry value="10" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_DOWN"/>
+            <entry value="9" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_DOWN"/>
+            <entry value="10" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_UP"/>
         </enum>
         <enum name="PLANCK_DECK_LID_STATUS_TYPE">
             <entry value="0" name="PLANCK_DECK_LID_STATUS_OFF"/>
-            <entry value="1" name="PLANCK_DECK_LIFT_RELAY_UP"/>
-            <entry value="2" name="PLANCK_DECK_LIFT_RELAY_DOWN"/>
-            <entry value="4" name="PLANCK_DECK_LID_RELAY_CLOSED"/>
-            <entry value="8" name="PLANCK_DECK_LID_RELAY_OPEN"/>
+            <entry value="1" name="PLANCK_DECK_LIFT_RELAY_DOWN"/>
+            <entry value="2" name="PLANCK_DECK_LIFT_RELAY_UP"/>
+            <entry value="4" name="PLANCK_DECK_LID_RELAY_OPEN"/>
+            <entry value="8" name="PLANCK_DECK_LID_RELAY_CLOSED"/>
             <entry value="16" name="PLANCK_DECK_LIFT_ADC_TAKEOFF_READY"/>
         </enum>
     </enums>
@@ -234,7 +234,7 @@
         </message>
         <message id="9013" name="PLANCK_DECK_LID_STATUS">
            <description>Status of the DECK LID system</description>
-	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift: b1:lift relay up, b2:lift relay down, b3:lid relay open, b4:lid relay closed, b5:lid adc open and lift adc up </field>
+	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift: b1:lift relay down, b2:lift relay up, b3:lid relay open, b4:lid relay closed, b5:lid adc open and lift adc up </field>
         </message>
     </messages>
 </mavlink>
