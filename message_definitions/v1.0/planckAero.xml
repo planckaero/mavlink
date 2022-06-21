@@ -19,10 +19,10 @@
           </entry>
         </enum>
         <enum name="COPTER_MODE">
-            <entry value="24" name="COPTER_MODE_PLANCKTRACKING"/>
-            <entry value="25" name="COPTER_MODE_PLANCKRTB"/>
-            <entry value="26" name="COPTER_MODE_PLANCKLAND"/>
-            <entry value="27" name="COPTER_MODE_PLANCKWINGMAN"/>
+            <entry value="28" name="COPTER_MODE_PLANCKTRACKING"/>
+            <entry value="29" name="COPTER_MODE_PLANCKRTB"/>
+            <entry value="30" name="COPTER_MODE_PLANCKLAND"/>
+            <entry value="31" name="COPTER_MODE_PLANCKWINGMAN"/>
         </enum>
         <enum name="MAV_CMD">
             <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
