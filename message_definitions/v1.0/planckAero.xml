@@ -234,7 +234,7 @@
         </message>
         <message id="9013" name="PLANCK_DECK_LID_STATUS">
            <description>Status of the DECK LID system</description>
-	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift: b1:lift relay down, b2:lift relay up, b3:lid relay open, b4:lid relay closed, b5:lid adc open and lift adc up </field>
+	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift: b1:lift relay down, b2:lift relay up, b3:lid relay closed, b4:lid relay open, b5:lid adc open and lift adc up </field>
         </message>
     </messages>
 </mavlink>
