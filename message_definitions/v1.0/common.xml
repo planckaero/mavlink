@@ -5460,7 +5460,7 @@
       <field type="uint8_t" name="count">Number of wheels reported.</field>
       <field type="double[16]" name="distance" units="m">Distance reported by individual wheel encoders. Forward rotations increase values, reverse rotations decrease them. Not all wheels will necessarily have wheel encoders; the mapping of encoders to wheel positions must be agreed/understood by the endpoints.</field>
     </message>
-    <message id="9005" name="WINCH_STATUS">
+    <message id="19005" name="WINCH_STATUS">
       <description>Winch status.</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (synced to UNIX time or since system boot).</field>
       <field type="float" name="line_length" units="m">Length of line released. NaN if unknown</field>
