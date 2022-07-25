@@ -1,5 +1,6 @@
 <?xml version='1.0'?>
 <mavlink>
+    <include>minimal.xml</include>
     <!-- PlanckAerosystems contact info:                            -->
     <!-- company URL: http://planckaero.com/                        -->
     <!-- email contact: info@planckaero.com.                        -->
