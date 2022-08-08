@@ -73,23 +73,17 @@
             <entry value="4" name="PLANCK_DECK_SPOOL_EOL_WARNING"/>
             <entry value="5" name="PLANCK_DECK_SPOOL_EOL_ERROR"/>
         </enum>
-        <enum name="PLANCK_LID_CMD_REQ_TYPE">
-            <entry value="1" name="PLANCK_CMD_REQ_LIFT_DOWN"/>
-            <entry value="2" name="PLANCK_CMD_REQ_LIFT_UP"/>
-            <entry value="4" name="PLANCK_CMD_REQ_LID_CLOSED"/>
-            <entry value="5" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_DOWN"/>
-            <entry value="6" name="PLANCK_CMD_REQ_LID_CLOSED_LIFT_UP"/>
-            <entry value="8" name="PLANCK_CMD_REQ_LID_OPEN"/>
-            <entry value="9" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_DOWN"/>
-            <entry value="10" name="PLANCK_CMD_REQ_LID_OPEN_LIFT_UP"/>
+	<enum name="PLANCK_CMD_REQ_TYPE"> <!-- Extending with DECK LID commands -->
+            <entry value="5" name="PLANCK_CMD_REQ_DECK_LID_OPEN"/>
+            <entry value="6" name="PLANCK_CMD_REQ_DECK_LID_CLOSE"/>
+            <entry value="7" name="PLANCK_CMD_REQ_DECK_SHUTDOWN"/>
         </enum>
         <enum name="PLANCK_DECK_LID_STATUS_TYPE">
-            <entry value="0" name="PLANCK_DECK_LID_STATUS_OFF"/>
-            <entry value="1" name="PLANCK_DECK_LIFT_RELAY_DOWN"/>
-            <entry value="2" name="PLANCK_DECK_LIFT_RELAY_UP"/>
-            <entry value="4" name="PLANCK_DECK_LID_RELAY_CLOSED"/>
-            <entry value="8" name="PLANCK_DECK_LID_RELAY_OPEN"/>
-            <entry value="16" name="PLANCK_DECK_LIFT_ADC_TAKEOFF_READY"/>
+            <entry value="0" name="PLANCK_DECK_LID_STATUS_OPEN"/>
+            <entry value="1" name="PLANCK_DECK_LID_STATUS_OPENING"/>
+            <entry value="2" name="PLANCK_DECK_LID_STATUS_CLOSED"/>
+            <entry value="3" name="PLANCK_DECK_LID_STATUS_CLOSING"/>
+            <entry value="4" name="PLANCK_DECK_LID_STATUS_UNKNOWN"/>
         </enum>
     </enums>
     <messages>
@@ -209,16 +203,17 @@
         </message>
         <message id="9009" name="PLANCK_DECK_ARM_STATUS">
            <description>Status of the DECK ARM system</description>
-	        <field type="uint8_t" name="status" enum="PLANCK_DECK_ARM_STATUS_TYPE">Status of the DECK ARM. See PLANCK_DECK_ARM_STATUS_TYPE enum</field>
+	   <field type="uint8_t" name="status" enum="PLANCK_DECK_ARM_STATUS_TYPE">Status of the DECK ARM. See PLANCK_DECK_ARM_STATUS_TYPE enum</field>
         </message>
         <message id="9010" name="PLANCK_DECK_ESTOP_STATUS">
            <description>Status of the DECK ESTOP button</description>
-	        <field type="uint8_t" name="status">Status of the DECK E-stop. 0: no E-Stop event. 1: E-Stop event</field>
+	   <field type="uint8_t" name="status">Status of the DECK E-stop. 0: no E-Stop event. 1: E-Stop event</field>
         </message>
         <message id="9011" name="PLANCK_DECK_POWER_STATUS">
            <description>Status of the DECK battery and 400v power</description>
-	        <field type="uint8_t" name="batt_status" enum="PLANCK_DECK_BATTERY_STATUS_TYPE">Status of the DECK battery. See PLANCK_DECK_BATTERY_STATUS_TYPE enum</field>
-	        <field type="uint8_t" name="fourhundredvolt_status">Status of the DECK 400v output. 0: Off 1: On</field>
+	   <field type="uint8_t" name="batt_status" enum="PLANCK_DECK_BATTERY_STATUS_TYPE">Status of the DECK battery. See PLANCK_DECK_BATTERY_STATUS_TYPE enum</field>
+	   <field type="uint8_t" name="high_voltage_status">Status of the DECK high voltage output. 0: Off 1: On</field>
+	   <field type="uint8_t" name="ready_for_shutdown">If the DECK is ready for power-down. 0: not ready. 1: ready</field>
         </message>
         <message id="9012" name="PLANCK_DECK_TETHER_STATUS">
            <description>Status of the TETHER system</description>
@@ -234,7 +229,7 @@
         </message>
         <message id="9013" name="PLANCK_DECK_LID_STATUS">
            <description>Status of the DECK LID system</description>
-	        <field type="uint8_t" name="status">Status of the DECK Lid and Lift: b1:lift relay down, b2:lift relay up, b3:lid relay closed, b4:lid relay open, b5:lid adc open and lift adc up </field>
+           <field type="uint8_t" name="status" enum="PLANCK_DECK_LID_STATUS_TYPE">DECK lid status, see PLANCK_DECK_LID_STATUS_TYPE enum</field>
         </message>
     </messages>
 </mavlink>
