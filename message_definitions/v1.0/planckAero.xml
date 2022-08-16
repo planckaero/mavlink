@@ -76,7 +76,6 @@
 	<enum name="PLANCK_CMD_REQ_TYPE"> <!-- Extending with DECK LID commands -->
             <entry value="5" name="PLANCK_CMD_REQ_DECK_LID_OPEN"/>
             <entry value="6" name="PLANCK_CMD_REQ_DECK_LID_CLOSE"/>
-            <entry value="7" name="PLANCK_CMD_REQ_DECK_SHUTDOWN"/>
         </enum>
         <enum name="PLANCK_DECK_LID_STATUS_TYPE">
             <entry value="0" name="PLANCK_DECK_LID_STATUS_OPEN"/>
@@ -213,7 +212,6 @@
            <description>Status of the DECK battery and 400v power</description>
 	   <field type="uint8_t" name="batt_status" enum="PLANCK_DECK_BATTERY_STATUS_TYPE">Status of the DECK battery. See PLANCK_DECK_BATTERY_STATUS_TYPE enum</field>
 	   <field type="uint8_t" name="high_voltage_status">Status of the DECK high voltage output. 0: Off 1: On</field>
-	   <field type="uint8_t" name="ready_for_shutdown">If the DECK is ready for power-down. 0: not ready. 1: ready</field>
         </message>
         <message id="9012" name="PLANCK_DECK_TETHER_STATUS">
            <description>Status of the TETHER system</description>
