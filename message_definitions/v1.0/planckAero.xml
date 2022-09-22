@@ -54,6 +54,18 @@
             <entry value="5" name="PLANCK_ANAFI_SUBMODE_PLANCKWINGMAN"/>
             <entry value="6" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFFDRIFT"/>
         </enum>
+        <enum name="ACE_FRAME">
+            <description>Frame used the ACE system</description>
+            <entry value="0" name="ACE_FRAME_VNED">
+              <description>Origin: Center of gravity of the drone / X: North / Y: East / Z: Down</description>
+            </entry>
+            <entry value="1" name="ACE_FRAME_BF">
+              <description>Origin: Center of gravity of the drone / X:  Forward / Y: Right / Z: Down (Axis fixed to the body of the aircraft)</description>
+            </entry>
+            <entry value="2" name="ACE_FRAME_CF">
+              <description>Origin: Center of the camera / X: Along width / Y: Along height / Z: Outside forward (Axis fixed to the body of the camera)</description>
+            </entry>
+        </enum>
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
@@ -169,6 +181,22 @@
            <field type="float" name="vx" units="m/s">North velocity</field>
            <field type="float" name="vy" units="m/s">East velocity</field>
            <field type="float" name="vz" units="m/s">Down velocity</field>
+        </message>
+        <message id="9009" name="ACE_TAG_MEASUREMENT">
+           <description>Measured state information of the landing tag in ACE_FRAME </description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds</field>
+           <field type="uint8_t" name="frame" enum="ACE_FRAME">Coordinate frame used for following fields.</field>
+           <field type="float" name="x" units="meters">X position of the tag in ACE_FRAME</field>
+           <field type="float" name="y" units="meters">Y position of the tag in ACE_FRAME</field>
+           <field type="float" name="z" units="meters">Z position of the tag in ACE_FRAME</field>
+           <field type="float" name="R_xx" units="meters squared">Covariance of X position in ACE_FRAME</field>
+           <field type="float" name="R_yy" units="meters squared">Covariance of Y position in ACE_FRAME</field>
+           <field type="float" name="R_zz" units="meters squared">Covariance of Z position in ACE_FRAME</field>
+           <field type="float" name="R_xy" units="meters squared">Covariance of XY position in ACE_FRAME</field>
+           <field type="float" name="R_xz" units="meters squared">Covariance of XZ position in ACE_FRAME</field>
+           <field type="float" name="R_yz" units="meters squared">Covariance of YZ position in ACE_FRAME</field>
         </message>
     </messages>
 </mavlink>
