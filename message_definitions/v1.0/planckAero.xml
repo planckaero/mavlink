@@ -70,8 +70,7 @@
             <description>Camera used by the ACE system</description>
             <entry value="0" name="PLANCK_CAMERA_UNSPECIFIED"/>
             <entry value="1" name="PLANCK_CAMERA_PI"/>
-            <entry value="2" name="PLANCK_CAMERA_GIMBAL_HOODTECH"/>
-            <entry value="3" name="PLANCK_CAMERA_GIMBAL_ANAFI"/>
+            <entry value="2" name="PLANCK_CAMERA_GIMBAL_MISB"/>
         </enum>
     </enums>
     <messages>
