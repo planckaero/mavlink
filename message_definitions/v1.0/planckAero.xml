@@ -186,15 +186,15 @@
            <description>Measured state information of the landing tag in PLANCK_FRAME </description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds</field>
-           <field type="uint32_t" name="age" units="microseconds">Age of the measurement in microseconds</field>
+           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds (NaN if unknown)</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the measurement in microseconds (NaN if unknown)</field>
            <field type="uint8_t" name="frame" enum="PLANCK_FRAME">Coordinate frame used for following fields.</field>
-           <field type="float" name="x" units="meters">X position of the tag in PLANCK_FRAME</field>
-           <field type="float" name="y" units="meters">Y position of the tag in PLANCK_FRAME</field>
-           <field type="float" name="z" units="meters">Z position of the tag in PLANCK_FRAME</field>
-           <field type="float[6]" name="pos_covariance">Row-major representation of position 3x3 cross-covariance matrix upper right triangle (states: x, y, z so entries are R_xx, R_xy, R_xz, R_yy, R_yz, Rzz</field>
-           <field type="float[4]" name="quaternion">Attitude quaternion of the tag in PLANCK_FRAME (w, x, y, z order, zero-rotation is 1, 0, 0, 0)"</field>
-           <field type="float[10]" name="quat_covariance">Row-major representation of attitude quaternion 4x4 cross-covariance matrix upper right triangle (states: w, x, y, z so entries are R_ww, R_wx, R_wy, R_wz, R_xx, R_xy, R_xz, R_yy, Ry_zx, R_zz</field>
+           <field type="float" name="x" units="meters">X position of the tag in PLANCK_FRAME (NaN if unknown)</field>
+           <field type="float" name="y" units="meters">Y position of the tag in PLANCK_FRAME (NaN if unknown)</field>
+           <field type="float" name="z" units="meters">Z position of the tag in PLANCK_FRAME (NaN if unknown)</field>
+           <field type="float[6]" name="pos_covariance">Row-major representation of position 3x3 cross-covariance matrix upper right triangle (states: x, y, z so entries are R_xx, R_xy, R_xz, R_yy, R_yz, Rzz).If unknown, assign NaN value to first element in the array.</field>
+           <field type="float[4]" name="quaternion">Attitude quaternion of the tag in PLANCK_FRAME (w, x, y, z order, zero-rotation is 1, 0, 0, 0).If unknown, assign NaN value to first element in the array.</field>
+           <field type="float[10]" name="quat_covariance">Row-major representation of attitude quaternion 4x4 cross-covariance matrix upper right triangle (states: w, x, y, z so entries are R_ww, R_wx, R_wy, R_wz, R_xx, R_xy, R_xz, R_yy, Ry_zx, R_zz).If unknown, assign NaN value to first element in the array.</field>
         </message>
     </messages>
 </mavlink>
