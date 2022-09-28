@@ -54,6 +54,24 @@
             <entry value="5" name="PLANCK_ANAFI_SUBMODE_PLANCKWINGMAN"/>
             <entry value="6" name="PLANCK_ANAFI_SUBMODE_PLANCKTAKEOFFDRIFT"/>
         </enum>
+        <enum name="PLANCK_FRAME">
+            <description>Frame used the ACE system</description>
+            <entry value="0" name="PLANCK_FRAME_VNED">
+              <description>Origin: Center of gravity of the drone / X: North / Y: East / Z: Down</description>
+            </entry>
+            <entry value="1" name="PLANCK_FRAME_BF">
+              <description>Origin: Center of gravity of the drone / X:  Forward / Y: Right / Z: Down (Axis fixed to the body of the aircraft)</description>
+            </entry>
+            <entry value="2" name="PLANCK_FRAME_CF">
+              <description>Origin: Center of the camera / X: Along width / Y: Along height / Z: Outside forward (Axis fixed to the body of the camera)</description>
+            </entry>
+        </enum>
+        <enum name="PLANCK_CAMERA">
+            <description>Camera used by the ACE system</description>
+            <entry value="0" name="PLANCK_CAMERA_UNSPECIFIED"/>
+            <entry value="1" name="PLANCK_CAMERA_PI"/>
+            <entry value="2" name="PLANCK_CAMERA_GIMBAL_MISB"/>
+        </enum>
     </enums>
     <messages>
         <message id="9001" name="PLANCK_STATEINFO">
@@ -169,6 +187,21 @@
            <field type="float" name="vx" units="m/s">North velocity</field>
            <field type="float" name="vy" units="m/s">East velocity</field>
            <field type="float" name="vz" units="m/s">Down velocity</field>
+        </message>
+        <message id="9009" name="PLANCK_LANDING_TAG_MEASUREMENT">
+           <description>Measured state information of the landing tag in PLANCK_FRAME </description>
+           <field type="uint8_t" name="target_system">System ID</field>
+           <field type="uint8_t" name="target_component">Component ID</field>
+           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds (NaN if unknown)</field>
+           <field type="uint32_t" name="age" units="microseconds">Age of the measurement in microseconds (NaN if unknown)</field>
+           <field type="uint8_t" name="camera" enum="PLANCK_CAMERA">Camera input for this measurement</field>
+           <field type="uint8_t" name="frame" enum="PLANCK_FRAME">Coordinate frame used for following fields.</field>
+           <field type="float" name="x" units="meters">X position of the tag in PLANCK_FRAME (NaN if unknown)</field>
+           <field type="float" name="y" units="meters">Y position of the tag in PLANCK_FRAME (NaN if unknown)</field>
+           <field type="float" name="z" units="meters">Z position of the tag in PLANCK_FRAME (NaN if unknown)</field>
+           <field type="float[6]" name="pos_covariance">Row-major representation of position 3x3 cross-covariance matrix upper right triangle (states: x, y, z so entries are R_xx, R_xy, R_xz, R_yy, R_yz, Rzz).If unknown, assign NaN value to first element in the array.</field>
+           <field type="float[4]" name="quaternion">Attitude quaternion of the tag in PLANCK_FRAME (w, x, y, z order, zero-rotation is 1, 0, 0, 0).If unknown, assign NaN value to first element in the array.</field>
+           <field type="float[10]" name="quat_covariance">Row-major representation of attitude quaternion 4x4 cross-covariance matrix upper right triangle (states: w, x, y, z so entries are R_ww, R_wx, R_wy, R_wz, R_xx, R_xy, R_xz, R_yy, Ry_zx, R_zz).If unknown, assign NaN value to first element in the array.</field>
         </message>
     </messages>
 </mavlink>
