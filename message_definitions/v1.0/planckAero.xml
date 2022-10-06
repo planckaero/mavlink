@@ -76,6 +76,8 @@
 	<enum name="PLANCK_CMD_REQ_TYPE"> <!-- Extending with DECK LID commands -->
             <entry value="5" name="PLANCK_CMD_REQ_DECK_LID_OPEN"/>
             <entry value="6" name="PLANCK_CMD_REQ_DECK_LID_CLOSE"/>
+            <entry value="7" name="PLANCK_CMD_REQ_DECK_LID_FORCE_OPEN"/> <!-- Ingore preconditions -->
+            <entry value="8" name="PLANCK_CMD_REQ_DECK_LID_FORCE_CLOSE"/> <!-- Ignore preconditions -->
         </enum>
         <enum name="PLANCK_DECK_LID_STATUS_TYPE">
             <entry value="0" name="PLANCK_DECK_LID_STATUS_OPEN"/>
