@@ -73,11 +73,15 @@
             <entry value="4" name="PLANCK_DECK_SPOOL_EOL_WARNING"/>
             <entry value="5" name="PLANCK_DECK_SPOOL_EOL_ERROR"/>
         </enum>
-	<enum name="PLANCK_CMD_REQ_TYPE"> <!-- Extending with DECK LID commands -->
-            <entry value="5" name="PLANCK_CMD_REQ_DECK_LID_OPEN"/>
-            <entry value="6" name="PLANCK_CMD_REQ_DECK_LID_CLOSE"/>
-            <entry value="7" name="PLANCK_CMD_REQ_DECK_LID_FORCE_OPEN"/> <!-- Ingore preconditions -->
-            <entry value="8" name="PLANCK_CMD_REQ_DECK_LID_FORCE_CLOSE"/> <!-- Ignore preconditions -->
+        <enum name="PLANCK_CMD_REQ_TYPE"> <!-- Extending with DECK LID commands -->
+            <entry value="5" name="PLANCK_CMD_REQ_DECK_LID_OPEN">
+                <description>Enable Planck stateinfo data</description>
+                <param index="1" label="Force" minValue="0" maxValue="21196" increment="21196">21196: force open (override checks)</param>
+            </entry>
+            <entry value="6" name="PLANCK_CMD_REQ_DECK_LID_CLOSE">
+                <description>Enable Planck stateinfo data</description>
+                <param index="1" label="Force" minValue="0" maxValue="21196" increment="21196">21196: force close (override checks)</param>
+            </entry>
         </enum>
         <enum name="PLANCK_DECK_LID_STATUS_TYPE">
             <entry value="0" name="PLANCK_DECK_LID_STATUS_OPEN"/>
