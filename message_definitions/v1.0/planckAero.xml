@@ -75,12 +75,12 @@
         </enum>
         <enum name="PLANCK_CMD_REQ_TYPE"> <!-- Extending with DECK LID commands -->
             <entry value="5" name="PLANCK_CMD_REQ_DECK_LID_OPEN">
-                <description>Enable Planck stateinfo data</description>
-                <param index="1" label="Force" minValue="0" maxValue="21196" increment="21196">21196: force open (override checks)</param>
+                <description>Command to open the DECK lid</description>
+                <param index="1" label="Force" minValue="0" maxValue="21196" increment="21196">If 21196: force open (override checks), otherwise run the checks</param>
             </entry>
             <entry value="6" name="PLANCK_CMD_REQ_DECK_LID_CLOSE">
-                <description>Enable Planck stateinfo data</description>
-                <param index="1" label="Force" minValue="0" maxValue="21196" increment="21196">21196: force close (override checks)</param>
+                <description>Command to close the DECK lid</description>
+                <param index="1" label="Force" minValue="0" maxValue="21196" increment="21196">If 21196: force close (override checks), otherwise run the checks</param>
             </entry>
         </enum>
         <enum name="PLANCK_DECK_LID_STATUS_TYPE">
