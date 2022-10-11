@@ -188,7 +188,7 @@
            <field type="float" name="vy" units="m/s">East velocity</field>
            <field type="float" name="vz" units="m/s">Down velocity</field>
         </message>
-        <message id="9009" name="PLANCK_LANDING_TAG_MEASUREMENT">
+        <message id="9009" name="PLANCK_LANDING_TARGET_MEASUREMENT">
            <description>Measured state information of the landing tag in PLANCK_FRAME </description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
@@ -196,6 +196,7 @@
            <field type="uint32_t" name="age" units="microseconds">Age of the measurement in microseconds (NaN if unknown)</field>
            <field type="uint8_t" name="camera" enum="PLANCK_CAMERA">Camera input for this measurement</field>
            <field type="uint8_t" name="frame" enum="PLANCK_FRAME">Coordinate frame used for following fields.</field>
+           <field type="uint8_t" name="target_index">Index of the landing target detected</field>
            <field type="float" name="x" units="meters">X position of the tag in PLANCK_FRAME (NaN if unknown)</field>
            <field type="float" name="y" units="meters">Y position of the tag in PLANCK_FRAME (NaN if unknown)</field>
            <field type="float" name="z" units="meters">Z position of the tag in PLANCK_FRAME (NaN if unknown)</field>
